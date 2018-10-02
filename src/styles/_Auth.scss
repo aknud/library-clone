@@ -1,0 +1,52 @@
+.av-main {
+    background: $main-bg;
+    @include width-height(100%, 100vh);
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: center;
+    align-items: center;
+}
+.jumbo-div {
+    height: 90vh;
+    background: $tan-bg;
+    font-family: $title-font;
+    font-size: 60px;
+    color: $main-bg;
+    border-radius: 10px;
+    margin: auto 30px;
+}
+.av-tan {
+    display: grid;
+    justify-items: center;
+}
+.av-black{
+    @include width-height(60%, 350px);
+    display: grid;
+    grid-template-rows: 30% 30% 2fr;
+    align-items: center;
+    justify-items: center;
+    margin: 50px auto;
+    background: $grey-bg;
+    font-family: $main-font;
+    font-size:  28px;
+    letter-spacing: 2px;
+    color: $words;
+    border-radius: 10px;
+}
+.av-book {
+    @include width-height(200px, 200px);
+    margin: 20px auto;
+}
+.btn {
+    @include btn-style;
+    height: 70px;
+    padding: 0px 20px;
+    font-size: 42px;
+    border-style: none;
+    margin: 20px;
+}
+input {
+    border-radius: 7px;
+    background: $words;
+    margin: 20px;
+}

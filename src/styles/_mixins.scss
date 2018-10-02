@@ -1,0 +1,21 @@
+@mixin btn-style($height: 34px, $bg: $red-btn, $color: $tan-bg){
+    height: $height;
+    background: $bg;
+    font-family: $title-font;
+    font-size: 32px;
+    border-radius: 7px;
+    margin: 10px;
+    color: $color;
+}
+
+ @mixin width-height($width, $height) {
+    width: $width;
+    height: $height;
+ }
+
+ @mixin center {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: auto;
+  }
