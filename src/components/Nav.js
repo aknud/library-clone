@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
-import logo from './../../assets/tan-logo.svg';
+import { connect } from 'react-redux';
+import { Nav, NavItem, NavLink} from 'reactstrap';
+import logo from './../assets/tan-logo.svg';
 
-function Nav(){
-    return (
-        <div className="nav-main">
-            <img src={logo} alt="logo"/>
-            <Link to='/browse'>Browse</Link>
-            <Link to='/cart'>Cart</Link>
-            <Link to='/bookshelf'>My Shelf</Link>
-        </div>
-    )
+function NavBar() {
+	return (
+		<div className="nav-main">
+			<Nav>
+				<img className="nav-logo" src={logo} alt="logo" />
+				<Link to="/browse">
+					<h2>Browse</h2>
+				</Link>
+				<Link to="/cart">
+					<h2>Cart</h2>
+				</Link>
+				<Link to="/bookshelf">My Shelf</Link>
+			</Nav>
+		</div>
+	);
 }
 
-export default connect()(Nav);
+export default connect()(NavBar);

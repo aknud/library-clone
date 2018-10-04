@@ -4,6 +4,7 @@ const session = require('express-session');
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const ctrl = require('./controllers');
+const fkUser = require('./middleware');
 
 const app = express();
 
@@ -21,6 +22,8 @@ massive(CONNECTION_STRING).then(db =>{
     app.set('db', db);
     console.log('Database reporting for duty.');
 })
+
+app.use(fkUser.bypassAuthInDevelopment);
 
 app.post('/api/auth/login', ctrl.login);
 app.post('/api/auth/register', ctrl.register);

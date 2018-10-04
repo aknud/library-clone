@@ -102,3 +102,13 @@ input {
   border-radius: 7px;
   background: #fbffe6;
   margin: 20px; }
+
+.nav-main {
+  background-color: #020402; }
+
+.nav-logo {
+  width: 80px;
+  height: 80px; }
+
+Link {
+  height: 28px; }

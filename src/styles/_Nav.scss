@@ -1,0 +1,9 @@
+.nav-main {
+    background-color: $blk-bg;
+}
+.nav-logo {
+    @include width-height(80px, 80px)
+}
+Link {
+    height: 28px;
+}
