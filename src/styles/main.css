@@ -110,5 +110,11 @@ input {
   width: 80px;
   height: 80px; }
 
-Link {
-  height: 28px; }
+h2 {
+  font-size: 24px;
+  font-family: "Alegreya SC", serif;
+  color: #c6b38e; }
+
+h6 {
+  color: #c6b38e;
+  font-family: "Open Sans", sans-serif; }

@@ -4,6 +4,12 @@
 .nav-logo {
     @include width-height(80px, 80px)
 }
-Link {
-    height: 28px;
+h2 {
+    font-size: 24px;
+    font-family: $title-font;
+    color: $tan-bg;
+}
+h6 {
+    color: $tan-bg;
+    font-family: $main-font
 }

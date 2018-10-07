@@ -16,7 +16,6 @@ class Auth extends Component {
 		};
 	}
 	componentDidMount =()=>{
-		console.log('redirect on load',this.state.redirect)
 		if(this.props.user){
 			this.setState({ redirect: true });
 		}
@@ -46,7 +45,6 @@ class Auth extends Component {
 				})
 				.catch((err) => console.log('Something wrong in frontend', err));
 		} else {
-			console.log('this.state.redirect login',this.state.redirect)
 			this.setState({ redirect: true });
 		}
 	};
