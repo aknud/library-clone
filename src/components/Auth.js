@@ -41,7 +41,6 @@ class Auth extends Component {
 				.then((res) => {
 					this.props.getUserData(res.data);
 					this.setState({ redirect: true });
-					console.log('this.state.redirect on login',this.state.redirect);
 				})
 				.catch((err) => console.log('Something wrong in frontend', err));
 		} else {

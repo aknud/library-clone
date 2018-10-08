@@ -1,2 +1,2 @@
-select user_id, username from libraryCardd
+select user_id, username from libraryCard
 where username = $1;
