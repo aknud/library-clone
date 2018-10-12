@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Jumbotron } from 'reactstrap';
 import axios from 'axios';
-import { getUserData } from './../ducks/reducer';
+import { getUserData, getBooks } from './../ducks/reducer';
 import book from './../assets/maroon-logo.svg';
 
-class Auth extends Component {
+ export class Auth extends Component {
 	constructor() {
 		super();
 		this.state = {
 			username: '',
 			password: '',
+			books: [],
 			redirect: false
 		};
 	}
 	componentDidMount =()=>{
+		axios.get('/api/allBooks').then((res) => {
+			this.props.getBooks(res.data);
+		}).catch(err => console.log("You've got an error", err));
 		if(this.props.user){
 			this.setState({ redirect: true });
 		}
@@ -97,4 +101,4 @@ class Auth extends Component {
 	}
 }
 
-export default connect(null, { getUserData })(Auth);
+export default connect(null, { getUserData, getBooks })(Auth);

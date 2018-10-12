@@ -4,6 +4,7 @@ import { Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import logo from './../assets/tan-logo.svg';
 
 function NavBar(props) {
+	
 		return (
 			<div className="nav-main">
 				<Navbar>

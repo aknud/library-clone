@@ -28,5 +28,6 @@ app.use(fkUser.bypassAuthInDevelopment);
 app.post('/api/auth/login', ctrl.login);
 app.post('/api/auth/register', ctrl.register);
 app.post('/api/auth/logout', ctrl.logout);
+app.get('/api/allBooks', ctrl.getBooks);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

@@ -5,7 +5,6 @@ module.exports = {
 		dbi.find_user([username])
 		.then(user => {
 			if(user[0]){
-				console.log('user[0]', user[0])
 				req.session.user = user[0];
 				res.status(200).send(req.session.user)
 			}
@@ -14,7 +13,6 @@ module.exports = {
 			res.status(500).send({errorMessage: 'Somethings wrong in ctrl.login'})
 			console.log(err)
 		})
-		console.log('login fired');
 	},
 	register: (req, res) => {
 		const dbi = req.app.get('db');
@@ -24,7 +22,6 @@ module.exports = {
 			.then((newUser) => {
                 req.session.user = newUser[0]
 				res.status(201).send(req.session.user);
-				console.log('register fired', newUser);
 			})
 			.catch((err) => {
 				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.register' });
@@ -34,5 +31,14 @@ module.exports = {
 	logout: (req, res) => {
 		req.session.destroy();
 		res.json(true);
+	},
+	getBooks: (req, res) => {
+		const dbi = req.app.get('db');
+		dbi.all_books().then(books=>{
+			res.status(200).send(books);
+		}).catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.getBooks' });
+			console.log(err);
+		});
 	}
 };
