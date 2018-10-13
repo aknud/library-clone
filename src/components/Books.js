@@ -14,7 +14,6 @@ class Books extends React.Component {
 			background: 'white',
 			border: '2px solid black'
         };
-        console.log('this.props.books',this.props.books)
 		let display = this.props.books.map((book) => {
 			return (
 				<div key={book.book_id}>

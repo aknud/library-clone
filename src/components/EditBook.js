@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import Nav from './Nav';
 
 
-export class Bookshelf extends React.Component {
+export class EditBook extends React.Component {
     render(){
         return (
             <div>
                 <Nav />
-                <h1>My Shelf</h1>
+                <h1>Edit</h1>
+                <button onClick={() => this.props.history.goBack()}>Back</button>
             </div>
         )
     }
 
 }
-export default connect(null, {})(Bookshelf);
+export default connect(null, {})(EditBook);

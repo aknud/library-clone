@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
 import Books from './Books';
@@ -38,16 +39,16 @@ export class Browse extends Component {
 		return (
 			<div>
 				<Nav endSesh={this.logout} />
-				<div>
+				<header>
 					<h1>Browse Inventory</h1>
 					<p>In Stock</p>
 					<p>Out of Stock</p>
 					<p>Genre</p>
-				</div>
-				<div className="book-container" style={style}>
+				</header>
+				<main className="book-container" style={style}>
 					<Books />
-				</div>
-				<button>+Add New Book</button>
+				</main>
+				<footer><Link to='/add'><button>+Add New Book</button></Link></footer>
 			</div>
 		);
 	}

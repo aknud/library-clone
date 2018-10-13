@@ -8,7 +8,7 @@ export class Cart extends React.Component {
         return (
             <div>
                 <Nav />
-                <h1>This here be where you see what's in yer cart</h1>
+                <h1>My Cart</h1>
             </div>
         )
     }
