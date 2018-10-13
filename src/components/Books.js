@@ -17,7 +17,7 @@ class Books extends React.Component {
 		let display = this.props.books.map((book) => {
 			return (
 				<div key={book.book_id}>
-					<div style={card}>
+					<dl style={card}>
 						<picture>
 							<img style={size} src={book.image_url} alt={book.title} />
 						</picture>
@@ -25,7 +25,7 @@ class Books extends React.Component {
 						by <h4>{book.author}</h4>
                         In Stock: {book.in_stock}
                         <Link to={`/details/${book.book_id}`} ><button>Details</button></Link>
-					</div>
+					</dl>
 				</div>
 			);
 		});
