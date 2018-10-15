@@ -40,5 +40,15 @@ module.exports = {
 			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.getBooks' });
 			console.log(err);
 		});
+	},
+	addBook: (req, res) => {
+		const dbi = req.app.get('db');
+		const { url, title, author, genre, description } = req.body;
+		dbi.new_book([url, title, author, genre, description]).then(book => {
+			res.status(200).send(book);
+		}).catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addBook' });
+			console.log(err);
+		});
 	}
 };
