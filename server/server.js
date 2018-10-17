@@ -30,5 +30,6 @@ app.post('/api/auth/register', ctrl.register);
 app.post('/api/auth/logout', ctrl.logout);
 app.post('/api/addBook', ctrl.addBook);
 app.get('/api/allBooks', ctrl.getBooks);
+app.delete('/api/delete/:id', ctrl.deleteBook);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

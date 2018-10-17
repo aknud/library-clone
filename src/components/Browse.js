@@ -10,7 +10,11 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 export class Browse extends Component {
 	constructor() {
 		super();
-		this.state = {};
+		this.state = {
+			inStock: false,
+			outStock: false,
+			genre: false
+		};
 	}
 	componentDidMount = () => {
 		if (this.props.books.length === 0) {
@@ -26,6 +30,10 @@ export class Browse extends Component {
 			})
 			.catch((err) => console.log('fetchBooks has an error', err));
 	};
+	handleChange = (e) => {
+		const value = e.target.type === 'checkbox'? e.target.checked : e.target.value;
+		this.setState({[e.target.name]: value})
+	}
 	logout = () => {
 		axios.post('/api/auth/logout').then((response) => {
 			if (response.data) {
@@ -35,6 +43,7 @@ export class Browse extends Component {
 	};
 
 	render() {
+		console.log('this.state',this.state)
 		const style = {
 			height: '900px',
 			width: '900px',
@@ -45,33 +54,32 @@ export class Browse extends Component {
 				<Nav endSesh={this.logout} />
 				<div>
 					<h1>Browse Inventory</h1>
-					<form action=""></form>
 					<Form inline>
 						<FormGroup check>
 							<Label check>
-								In Stock <Input type="checkbox"/>
+								In Stock <Input type="checkbox" name="inStock" checked={this.state.inStock} onChange={this.handleChange}/>
 								</Label>
 								<Label>
-								Out of Stock <Input type="checkbox"/>
+								Out of Stock <Input type="checkbox" checked={this.state.outStock} name="outStock" onChange={this.handleChange}/>
 							</Label>
 						</FormGroup>
 						<FormGroup>
 							<Label >Genre</Label>
-							<Input type="select" bsSize="sm" name="genre">
-								<option>None</option>
-								<option>Fantasy</option>
-								<option>Mystery</option>
-								<option>Childrens</option>
-								<option>Sports</option>
-								<option>Horror</option>
-								<option>Romance</option>
-								<option>Sci-Fi</option>
+							<Input type="select" bsSize="sm" name="genre" onChange={this.handleChange}>
+								<option value={'false'} >All</option>
+								<option value="Fantasy">Fantasy</option>
+								<option value="Mystery">Mystery</option>
+								<option value="Childrens">Childrens</option>
+								<option value="Sports">Sports</option>
+								<option value="Horror">Horror</option>
+								<option value="Romance">Romance</option>
+								<option value="Sci-Fi">Sci-Fi</option>
 							</Input>
 						</FormGroup>
 					</Form>
 				</div>
 				<div className="book-container" style={style}>
-					<Books />
+					<Books {...this.state}/>
 				</div>
 				<div>
 					<Link to="/add">

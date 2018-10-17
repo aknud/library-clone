@@ -4,17 +4,22 @@ import {Link} from 'react-router-dom';
 
 class Books extends React.Component {
 	render() {
+		console.log('this.props in books',this.props.inStock)
 		const size = {
 			height: '115px',
 			width: '100px'
 		};
 		const card = {
-			width: '700px',
+			width: '500px',
 			height: '300px',
 			background: 'white',
 			border: '2px solid black'
-        };
-		let display = this.props.books.map((book) => {
+		};
+		let display = this.props.books.filter(item =>{
+			if(this.props.genre){
+				return item.genre === this.props.genre
+			} return'';
+		}).map((book) => {
 			return (
 				<div key={book.book_id}>
 					<dl style={card}>
@@ -28,7 +33,7 @@ class Books extends React.Component {
 					</dl>
 				</div>
 			);
-		});
+		})
 		return <div>{display}</div>;
 	}
 }

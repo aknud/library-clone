@@ -1,9 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Nav from './Nav';
+import {getBooks} from './../ducks/reducer';
 
 export class Details extends React.Component {
+	handleDelete =(id)=>{
+		console.log(id)
+		axios.delete(`/api/delete/${id}`).then(res =>{
+			this.props.getBooks(res.data);
+			this.props.history.push('/browse');
+		}).catch((err) => console.log('handleDelete has an error', err));
+	}
 	render() {
 		const size = {
 			height: '115px',
@@ -27,7 +36,7 @@ export class Details extends React.Component {
 							<Link to={`/edit/${book.book_id}`}>
 								<button>Edit</button>
 							</Link>
-							<button>Delete</button>
+							<button onClick={()=>this.handleDelete(+book.book_id)}>Delete</button>
 							<button>+ Add to Cart</button>
 						</div>
 					</div>
@@ -49,4 +58,4 @@ const mapStateToProps = (state) => {
 		books: state.books
 	};
 };
-export default connect(mapStateToProps, {})(Details);
+export default connect(mapStateToProps, {getBooks})(Details);

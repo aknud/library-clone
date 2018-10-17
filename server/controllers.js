@@ -50,5 +50,16 @@ module.exports = {
 			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addBook' });
 			console.log(err);
 		});
+	},
+	deleteBook: (req, res)=>{
+		const dbi = req.app.get('db');
+		dbi.delete_book([req.params.id]).then(books=>{
+			res.status(200).send(books);
+		}).catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.deleteBook' });
+			console.log(err);
+		});
+		console.log('delete ran', req.params.id)
+
 	}
 };
