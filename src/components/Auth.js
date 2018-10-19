@@ -6,7 +6,7 @@ import axios from 'axios';
 import { getUserData, getBooks } from './../ducks/reducer';
 import book from './../assets/maroon-logo.svg';
 
- export class Auth extends Component {
+export class Auth extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -16,14 +16,24 @@ import book from './../assets/maroon-logo.svg';
 			redirect: false
 		};
 	}
-	componentDidMount =()=>{
-		axios.get('/api/allBooks').then((res) => {
-			this.props.getBooks(res.data);
-		}).catch(err => console.log("You've got an error", err));
-		if(this.props.user){
-			this.setState({ redirect: true });
+	componentDidMount = () => {
+		axios
+			.get('/api/allBooks')
+			.then((res) => {
+				this.props.getBooks(res.data);
+			})
+			.catch((err) => console.log("You've got an error", err));
+		//delete this if statement when done with development
+		if (this.props.user) {
+			axios
+				.get('/api/checkForBypass')
+				.then((res) => {
+					this.props.getUserData(res.data);
+					this.setState({ redirect: true });
+				})
+				.catch((err) => console.log("You've got an error", err));
 		}
-	}
+	};
 	handleInput = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
@@ -100,5 +110,10 @@ import book from './../assets/maroon-logo.svg';
 		);
 	}
 }
+const mapStateToProps = (state) => {
+	return {
+		user: state.user
+	};
+};
 
-export default connect(null, { getUserData, getBooks })(Auth);
+export default connect(mapStateToProps, { getUserData, getBooks })(Auth);

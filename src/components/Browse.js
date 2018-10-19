@@ -18,22 +18,19 @@ export class Browse extends Component {
 	}
 	componentDidMount = () => {
 		if (this.props.books.length === 0) {
-			this.fetchBooks();
-			console.log('fetchBook had to run');
-		}
-	};
-	fetchBooks = () => {
-		axios
+			axios
 			.get('/api/allBooks')
 			.then((res) => {
 				this.props.getBooks(res.data);
 			})
 			.catch((err) => console.log('fetchBooks has an error', err));
+		}
+		console.log('fetchBook had to run');
 	};
 	handleChange = (e) => {
-		const value = e.target.type === 'checkbox'? e.target.checked : e.target.value;
-		this.setState({[e.target.name]: value})
-	}
+		const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+		this.setState({ [e.target.name]: value });
+	};
 	logout = () => {
 		axios.post('/api/auth/logout').then((response) => {
 			if (response.data) {
@@ -43,7 +40,8 @@ export class Browse extends Component {
 	};
 
 	render() {
-		console.log('this.state',this.state)
+		console.log('this.state', this.state);
+		console.log('this.props', this.props);
 		const style = {
 			height: '900px',
 			width: '900px',
@@ -57,16 +55,28 @@ export class Browse extends Component {
 					<Form inline>
 						<FormGroup check>
 							<Label check>
-								In Stock <Input type="checkbox" name="inStock" checked={this.state.inStock} onChange={this.handleChange}/>
-								</Label>
-								<Label>
-								Out of Stock <Input type="checkbox" checked={this.state.outStock} name="outStock" onChange={this.handleChange}/>
+								In Stock{' '}
+								<Input
+									type="checkbox"
+									name="inStock"
+									checked={this.state.inStock}
+									onChange={this.handleChange}
+								/>
+							</Label>
+							<Label>
+								Out of Stock{' '}
+								<Input
+									type="checkbox"
+									checked={this.state.outStock}
+									name="outStock"
+									onChange={this.handleChange}
+								/>
 							</Label>
 						</FormGroup>
 						<FormGroup>
-							<Label >Genre</Label>
+							<Label>Genre</Label>
 							<Input type="select" bsSize="sm" name="genre" onChange={this.handleChange}>
-								<option value={'false'} >All</option>
+								<option value="">All</option>
 								<option value="Fantasy">Fantasy</option>
 								<option value="Mystery">Mystery</option>
 								<option value="Childrens">Childrens</option>
@@ -79,7 +89,7 @@ export class Browse extends Component {
 					</Form>
 				</div>
 				<div className="book-container" style={style}>
-					<Books {...this.state}/>
+					<Books {...this.state} />
 				</div>
 				<div>
 					<Link to="/add">

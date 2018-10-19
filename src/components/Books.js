@@ -16,9 +16,11 @@ class Books extends React.Component {
 			border: '2px solid black'
 		};
 		let display = this.props.books.filter(item =>{
-			if(this.props.genre){
-				return item.genre === this.props.genre
-			} return'';
+			if(item.genre === this.props.genre){
+				return item.genre === this.props.genre;
+			}else if(!this.props.genre){
+				return true;
+			}
 		}).map((book) => {
 			return (
 				<div key={book.book_id}>
