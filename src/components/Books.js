@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 class Books extends React.Component {
 	render() {
-		console.log('this.props in books',this.props.inStock)
+		console.log('outStock in books',this.props)
 		const size = {
 			height: '115px',
 			width: '100px'
@@ -15,10 +15,12 @@ class Books extends React.Component {
 			background: 'white',
 			border: '2px solid black'
 		};
+
 		let display = this.props.books.filter(item =>{
 			if(item.genre === this.props.genre){
 				return item.genre === this.props.genre;
-			}else if(!this.props.genre){
+			}
+			if(!this.props.genre){
 				return true;
 			}
 		}).map((book) => {
@@ -30,7 +32,7 @@ class Books extends React.Component {
 						</picture>
 						<h1>{book.title}</h1>
 						by <h4>{book.author}</h4>
-                        In Stock: {book.in_stock}
+                        In Stock: {book.in_stock ? 'Yes' : 'No'}
                         <Link to={`/details/${book.book_id}`} ><button>Details</button></Link>
 					</dl>
 				</div>

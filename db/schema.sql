@@ -10,8 +10,7 @@ author VARCHAR(50),
 genre VARCHAR(25),
 description TEXT,
 image_url TEXT,
-in_stock VARCHAR(3),
-user_id INTEGER REFERENCES libraryCard(user_id)
+in_stock BOOL
 );
 CREATE TABLE libraryCart(
 libraryCart_id SERIAL PRIMARY KEY,
