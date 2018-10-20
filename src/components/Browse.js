@@ -88,13 +88,13 @@ export class Browse extends Component {
 						</FormGroup>
 					</Form>
 				</div>
-				<div className="book-container" style={style}>
-					<Books {...this.state} />
-				</div>
 				<div>
 					<Link to="/add">
 						<button>+Add New Book</button>
 					</Link>
+				</div>
+				<div className="book-container" style={style}>
+					<Books {...this.state} />
 				</div>
 			</div>
 		);
