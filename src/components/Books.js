@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Books extends React.Component {
 	render() {
 		console.log('outStock in books', this.props);
-		const {books, inStock, outStock, genre} = this.props;
+		const { books, inStock, outStock, genre } = this.props;
 		const size = {
 			height: '115px',
 			width: '100px'
@@ -19,17 +19,23 @@ class Books extends React.Component {
 
 		let display = books
 			.filter((item) => {
-				if(genre){
+				if (!genre && inStock && outStock) {
+					return true;
+				}
+				if (genre && inStock && outStock) {
 					return item.genre === genre;
 				}
-				if(inStock){
-					return item.in_stock === true
+				if (genre && inStock) {
+					return item.genre === genre && item.in_stock;
 				}
-				if(outStock){
-					return item.in_stock === false
+				if (inStock) {
+					return item.in_stock === true;
 				}
-				if(!genre){
-					return true;
+				if (outStock && genre) {
+					return !item.in_stock && item.genre === genre;
+				}
+				if (outStock){
+					return !item.in_stock
 				}
 			})
 			.map((book) => {

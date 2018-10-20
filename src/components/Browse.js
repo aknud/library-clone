@@ -11,8 +11,8 @@ export class Browse extends Component {
 	constructor() {
 		super();
 		this.state = {
-			inStock: false,
-			outStock: false,
+			inStock: true,
+			outStock: true,
 			genre: false
 		};
 	}
