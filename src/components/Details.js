@@ -3,15 +3,26 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
-import {getBooks} from './../ducks/reducer';
+import {getBooks, booksInCart} from './../ducks/reducer';
 
 export class Details extends React.Component {
+	constructor(){
+		super();
+		this.state = {
+			booksInCart: []
+		}
+	}
 	handleDelete =(id)=>{
-		console.log(id)
 		axios.delete(`/api/delete/${id}`).then(res =>{
 			this.props.getBooks(res.data);
 			this.props.history.push('/browse');
 		}).catch((err) => console.log('handleDelete has an error', err));
+	}
+	addToCart = (id) => {
+		axios.post(`/api/addToCart/${id}`).then(res => {
+			this.props.booksInCart(res.data)
+			console.log('state', this.state.booksInCart)
+		})
 	}
 	render() {
 		const size = {
@@ -30,14 +41,14 @@ export class Details extends React.Component {
 							<h1>Title: {book.title}</h1>
 							<h4>Author: {book.author}</h4>
 							<h4>Genre: {book.genre}</h4>
-							<h4>In Stock: {book.in_stock}</h4>
+							<h4>In Stock: {book.in_stock ? 'Yes' : 'No'}</h4>
 							<h4>Description:</h4>
 							<p>{book.description}</p>
 							<Link to={`/edit/${book.book_id}`}>
 								<button>Edit</button>
 							</Link>
 							<button onClick={()=>this.handleDelete(+book.book_id)}>Delete</button>
-							<button>+ Add to Cart</button>
+							{book.in_stock ? <button onClick={()=>this.addToCart(book.book_id)}>+ Add to Cart</button> : null}
 						</div>
 					</div>
 				);
@@ -58,4 +69,4 @@ const mapStateToProps = (state) => {
 		books: state.books
 	};
 };
-export default connect(mapStateToProps, {getBooks})(Details);
+export default connect(mapStateToProps, {getBooks, booksInCart})(Details);

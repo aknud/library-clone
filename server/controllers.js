@@ -30,7 +30,7 @@ module.exports = {
 	},
 	logout: (req, res) => {
 		req.session.destroy();
-		res.json(true);
+		res.redirect('/');
 	},
 	getBooks: (req, res) => {
 		const dbi = req.app.get('db');
@@ -61,5 +61,17 @@ module.exports = {
 		});
 		console.log('delete ran', req.params.id)
 
+	},
+	addToCart: (req, res) => {
+		const dbi = req.app.get('db');
+		console.log('user id', req.session.user.user_id)
+		console.log('book id', req.params.id)
+		dbi.add_book_to_cart([req.session.user.user_id, req.params.id]).then(books=>{
+			res.status(200).send(books);
+		}).catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addToCart' });
+			console.log(err);
+		});
+		console.log('addToCart ran')
 	}
 };

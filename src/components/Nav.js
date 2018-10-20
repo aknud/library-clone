@@ -1,10 +1,31 @@
 import React from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import logo from './../assets/tan-logo.svg';
 
-function NavBar(props) {
-	
+class NavBar extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			redirect: false
+		};
+	}
+	logout = () => {
+		axios.post('/api/auth/logout').then((res) => {
+			if (res) {
+				this.setState({ redirect: true });
+				console.log('you are logged out');
+			}
+		});
+	};
+	render() {
+		const { redirect } = this.state;
+
+		if (redirect) {
+			return <Redirect to="/" />;
+		}
 		return (
 			<div className="nav-main">
 				<Navbar>
@@ -27,13 +48,16 @@ function NavBar(props) {
 						</NavLink>
 					</NavItem>
 					<NavItem>
-						<NavLink >
-							<button onClick={props.endSesh}><h6>Logout</h6></button>
+						<NavLink>
+							<button onClick={this.logout}>
+								<h6>Logout</h6>
+							</button>
 						</NavLink>
 					</NavItem>
 				</Navbar>
 			</div>
 		);
+	}
 }
 
-export default connect()(NavBar);
+export default connect(null, {})(NavBar);

@@ -37,6 +37,7 @@ app.post('/api/auth/login', ctrl.login);
 app.post('/api/auth/register', ctrl.register);
 app.post('/api/auth/logout', ctrl.logout);
 app.post('/api/addBook', ctrl.addBook);
+app.post('/api/addToCart/:id', ctrl.addToCart)
 app.get('/api/allBooks', ctrl.getBooks);
 app.delete('/api/delete/:id', ctrl.deleteBook);
 

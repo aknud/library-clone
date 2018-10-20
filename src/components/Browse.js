@@ -31,17 +31,15 @@ export class Browse extends Component {
 		const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
 		this.setState({ [e.target.name]: value });
 	};
-	logout = () => {
-		axios.post('/api/auth/logout').then((response) => {
-			if (response.data) {
-				this.props.history.push('/');
-			}
-		});
-	};
+	// logout = () => {
+	// 	axios.post('/api/auth/logout').then((response) => {
+	// 		if (response.data) {
+	// 			this.props.history.push('/');
+	// 		}
+	// 	});
+	// };
 
 	render() {
-		// console.log('this.state', this.state);
-		console.log('this.props', this.props);
 		const style = {
 			height: '900px',
 			width: '900px',
@@ -49,7 +47,7 @@ export class Browse extends Component {
 		};
 		return (
 			<div>
-				<Nav endSesh={this.logout} />
+				<Nav/>
 				<div>
 					<h1>Browse Inventory</h1>
 					<Form inline>
