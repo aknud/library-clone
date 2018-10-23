@@ -21,6 +21,7 @@ export class Auth extends Component {
 			.get('/api/allBooks')
 			.then((res) => {
 				this.props.getBooks(res.data);
+				console.log('auth books ran');
 			})
 			.catch((err) => console.log("You've got an error", err));
 		//delete this if statement when done with development

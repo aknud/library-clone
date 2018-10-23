@@ -9,7 +9,7 @@ export class Details extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			booksInCart: []
+			inCart: false
 		}
 	}
 	handleDelete =(id)=>{
@@ -21,7 +21,7 @@ export class Details extends React.Component {
 	addToCart = (id) => {
 		axios.post(`/api/addToCart/${id}`).then(res => {
 			this.props.booksInCart(res.data)
-			console.log('state', this.state.booksInCart)
+			console.log('books going to cart', res.data)
 		})
 	}
 	render() {

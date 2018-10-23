@@ -29,7 +29,7 @@ class Books extends React.Component {
 					return item.genre === genre && item.in_stock;
 				}
 				if (inStock) {
-					return item.in_stock === true;
+					return item.in_stock;
 				}
 				if (outStock && genre) {
 					return !item.in_stock && item.genre === genre;
