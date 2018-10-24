@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {clearCart} from './../ducks/reducer';
 import { Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import logo from './../assets/tan-logo.svg';
 
@@ -16,8 +17,8 @@ class NavBar extends React.Component {
 	logout = () => {
 		axios.post('/api/auth/logout').then((res) => {
 			if (res) {
+				this.props.clearCart();
 				this.setState({ redirect: true });
-				console.log('you are logged out');
 			}
 		});
 	};
@@ -61,4 +62,4 @@ class NavBar extends React.Component {
 	}
 }
 
-export default connect(null, {})(NavBar);
+export default connect(null, {clearCart})(NavBar);

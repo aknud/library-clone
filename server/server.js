@@ -23,7 +23,7 @@ massive(CONNECTION_STRING).then(db =>{
     console.log('Database reporting for duty.');
 })
 
-app.use(fkUser.bypassAuthInDevelopment);
+// app.use(fkUser.bypassAuthInDevelopment);
 app.get('/api/checkForBypass', (req, res) => {
     if(req.session.user){
         res.status(200).send(req.session.user)
@@ -39,6 +39,7 @@ app.post('/api/addBook', ctrl.addBook);
 app.post('/api/addToCart/:id', ctrl.addToCart)
 app.get('/api/allBooks', ctrl.getBooks);
 app.get('/api/cart', ctrl.booksInCart);
+app.put('/api/editBook/:id', ctrl.editBook)
 app.delete('/api/removeFromCart/:id', ctrl.removeFromCart)
 app.delete('/api/delete/:id', ctrl.deleteBook);
 

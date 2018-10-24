@@ -9,7 +9,7 @@ export class NewBook extends React.Component {
     constructor(){
         super();
         this.state = {
-            url: '',
+            image_url: '',
             title: '',
             author: '',
             genre: '',
@@ -23,8 +23,8 @@ export class NewBook extends React.Component {
     };
     handleSubmit = (e) => {
 		e.preventDefault();
-		const { url, title, author, genre, description } = this.state;
-		let payload = { url, title, author, genre, description };
+		const { image_url, title, author, genre, description } = this.state;
+		let payload = { image_url, title, author, genre, description };
 		axios
 			.post('/api/addBook', payload)
 			.then((res) => {
@@ -42,12 +42,12 @@ export class NewBook extends React.Component {
 				<div>
 					<Form>
 						<FormGroup row>
-							<Label for="url" sm={1}>Url</Label>
+							<Label for="image_url" sm={1}>Url</Label>
 							<Col sm={8}>
-								<Input type="url" name="url" value={this.state.url} onChange={this.handleChange}/>
+								<Input type="url" name="image_url" value={this.state.image_url} onChange={this.handleChange}/>
 							</Col>
                             <Col sm={8}>
-								<img src={this.state.url} alt=""/>
+								<img src={this.state.image_url} alt=""/>
 							</Col>
 						</FormGroup>
 						<FormGroup row>

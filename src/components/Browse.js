@@ -31,13 +31,6 @@ export class Browse extends Component {
 		const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
 		this.setState({ [e.target.name]: value });
 	};
-	// logout = () => {
-	// 	axios.post('/api/auth/logout').then((response) => {
-	// 		if (response.data) {
-	// 			this.props.history.push('/');
-	// 		}
-	// 	});
-	// };
 
 	render() {
 		const style = {

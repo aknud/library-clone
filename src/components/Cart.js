@@ -17,9 +17,16 @@ class Cart extends React.Component {
         axios.delete(`/api/removeFromCart/${id}`).then((res) => {
             this.props.booksInCart(res.data);
         });
-    }
+	}
+	clearCart = ()=> {
+		
+	}
 
 	render() {
+		const size = {
+			height: '115px',
+			width: '100px'
+		};
 		let books = this.props.cart.map((book) => {
 			return (
 				<div key={book.librarycart_id} style={{ border: '1px solid red' }}>
@@ -38,10 +45,6 @@ class Cart extends React.Component {
 				</div>
 			);
 		});
-		const size = {
-			height: '115px',
-			width: '100px'
-		};
 		return (
 			<div>
 				<Nav />

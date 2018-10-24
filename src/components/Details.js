@@ -20,7 +20,8 @@ export class Details extends React.Component {
 	}
 	addToCart = (id) => {
 		axios.post(`/api/addToCart/${id}`).then(res => {
-			this.props.booksInCart(res.data)
+			this.props.booksInCart(res.data);
+			this.props.history.push('/browse');
 		})
 	}
 	render() {

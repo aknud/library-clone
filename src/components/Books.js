@@ -15,8 +15,8 @@ class Books extends React.Component {
 			background: 'white',
 			border: '2px solid black'
 		};
-
 		let display = books
+		// eslint-disable-next-line
 			.filter((item) => {
 				if (!genre && inStock && outStock) {
 					return true;
