@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 class Books extends React.Component {
 	render() {
-		console.log('outStock in books', this.props);
 		const { books, inStock, outStock, genre } = this.props;
 		const size = {
 			height: '115px',
@@ -60,7 +59,8 @@ class Books extends React.Component {
 }
 const mapStateToProps = (state) => {
 	return {
-		books: state.books
+		books: state.books,
+		cart: state.cart
 	};
 };
 export default connect(mapStateToProps, {})(Books);

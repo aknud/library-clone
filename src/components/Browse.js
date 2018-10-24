@@ -22,10 +22,10 @@ export class Browse extends Component {
 			.get('/api/allBooks')
 			.then((res) => {
 				this.props.getBooks(res.data);
+				console.log('fetchBook had to run');
 			})
 			.catch((err) => console.log('fetchBooks has an error', err));
 		}
-		console.log('fetchBook had to run');
 	};
 	handleChange = (e) => {
 		const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
@@ -100,7 +100,7 @@ export class Browse extends Component {
 }
 const mapStateToProps = (state) => {
 	return {
-		books: state.books
+		books: state.books,
 	};
 };
 

@@ -21,7 +21,6 @@ export class Details extends React.Component {
 	addToCart = (id) => {
 		axios.post(`/api/addToCart/${id}`).then(res => {
 			this.props.booksInCart(res.data)
-			console.log('books going to cart', res.data)
 		})
 	}
 	render() {

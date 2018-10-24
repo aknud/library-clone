@@ -13,7 +13,6 @@ export default function reducer(state = initialState, action) {
 		case UPDATE_BOOKS:
 			return Object.assign({}, state, { books: action.payload });
 		case BOOKS_IN_CART:
-			console.log('payload', action.payload);
 			return Object.assign({}, state, { cart: action.payload });
 		default:
 			return state;

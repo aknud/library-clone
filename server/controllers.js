@@ -64,14 +64,29 @@ module.exports = {
 	},
 	addToCart: (req, res) => {
 		const dbi = req.app.get('db');
-		console.log('user id', req.session.user.user_id)
-		console.log('book id', req.params.id)
 		dbi.add_book_to_cart([req.session.user.user_id, req.params.id]).then(books=>{
 			res.status(200).send(books);
 		}).catch((err) => {
 			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addToCart' });
 			console.log(err);
 		});
-		console.log('addToCart ran')
+	},
+	booksInCart: (req, res)=>{
+		const dbi = req.app.get('db');
+		dbi.books_in_cart([req.session.user.user_id]).then(books=>{
+			res.status(200).send(books)
+		}).catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.booksInCart' });
+			console.log(err);
+		});
+	},
+	removeFromCart: (req, res)=>{
+		const dbi = req.app.get('db');
+		dbi.remove_from_cart([req.session.user.user_id, req.params.id]).then(books=>{
+			res.status(200).send(books)
+		}).catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.booksInCart' });
+			console.log(err);
+		});
 	}
 };

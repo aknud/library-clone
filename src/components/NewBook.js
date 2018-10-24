@@ -28,14 +28,12 @@ export class NewBook extends React.Component {
 		axios
 			.post('/api/addBook', payload)
 			.then((res) => {
-                console.log('res.data',res.data)
 				this.props.updateBooks(res.data);
 				this.props.history.push(`/browse`);
 			})
 			.catch((err) => console.log(err));
 	};
 	render() {
-        console.log(this.state)
 		return (
 			<div>
 				<Nav />

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import logo from './../assets/tan-logo.svg';
 
@@ -33,19 +34,19 @@ class NavBar extends React.Component {
 						<img className="nav-logo" src={logo} alt="logo" />
 					</NavbarBrand>
 					<NavItem>
-						<NavLink href="/browse">
+						<Link to="/browse">
 							<h2>Browse</h2>
-						</NavLink>
+						</Link>
 					</NavItem>
 					<NavItem>
-						<NavLink href="/cart">
+						<Link to="/cart">
 							<h2>Cart</h2>
-						</NavLink>
+						</Link>
 					</NavItem>
 					<NavItem>
-						<NavLink href="/bookshelf">
+						<Link to="/bookshelf">
 							<h2>My Shelf</h2>
-						</NavLink>
+						</Link>
 					</NavItem>
 					<NavItem>
 						<NavLink>
