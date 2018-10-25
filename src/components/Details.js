@@ -2,28 +2,48 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import swal from 'sweetalert';
 import Nav from './Nav';
-import {getBooks, booksInCart} from './../ducks/reducer';
+import { getBooks, booksInCart } from './../ducks/reducer';
 
 export class Details extends React.Component {
-	constructor(){
+	constructor() {
 		super();
 		this.state = {
 			inCart: false
-		}
+		};
 	}
-	handleDelete =(id)=>{
-		axios.delete(`/api/delete/${id}`).then(res =>{
-			this.props.getBooks(res.data);
-			this.props.history.push('/browse');
-		}).catch((err) => console.log('handleDelete has an error', err));
-	}
+	handleDelete = (id, title) => {
+		swal({
+			title: 'Are you SURE you want to delete this?',
+			text: `If you press Obliterate, ${title} will be gone forever. No take-backs.`,
+			icon: 'warning',
+			buttons: ['Omg, NO!','Obliterate it!'],
+			dangerMode: true,
+		})
+			.then((willDelete) => {
+				if (willDelete) {
+					axios.delete(`/api/delete/${id}`).then((res) => {
+						this.props.getBooks(res.data);
+						this.props.history.push('/browse');
+					});
+					swal({
+						title: 'Exterminated!',
+						icon: 'success',
+						text: 'No second chances'
+					});
+				} else {
+					swal(`${title} is safe. Thank you for letting it stay.`)
+				}
+			})
+			.catch((err) => console.log('handleDelete has an error', err));
+	};
 	addToCart = (id) => {
-		axios.post(`/api/addToCart/${id}`).then(res => {
+		axios.post(`/api/addToCart/${id}`).then((res) => {
 			this.props.booksInCart(res.data);
 			this.props.history.push('/browse');
-		})
-	}
+		});
+	};
 	render() {
 		const size = {
 			height: '115px',
@@ -47,8 +67,10 @@ export class Details extends React.Component {
 							<Link to={`/edit/${book.book_id}`}>
 								<button>Edit</button>
 							</Link>
-							<button onClick={()=>this.handleDelete(+book.book_id)}>Delete</button>
-							{book.in_stock ? <button onClick={()=>this.addToCart(book.book_id)}>+ Add to Cart</button> : null}
+							<button onClick={() => this.handleDelete(+book.book_id, book.title)}>Delete</button>
+							{book.in_stock ? (
+								<button onClick={() => this.addToCart(book.book_id)}>+ Add to Cart</button>
+							) : null}
 						</div>
 					</div>
 				);
@@ -69,4 +91,4 @@ const mapStateToProps = (state) => {
 		books: state.books
 	};
 };
-export default connect(mapStateToProps, {getBooks, booksInCart})(Details);
+export default connect(mapStateToProps, { getBooks, booksInCart })(Details);

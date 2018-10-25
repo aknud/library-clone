@@ -37,7 +37,6 @@ export class EditBook extends React.Component {
 			.catch((err) => console.log(err));
 	};
 	render() {
-		console.log(this.props.books);
 		return (
 			<div>
 				<Nav />
