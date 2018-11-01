@@ -1,3 +1,5 @@
+const pgp = require('pg-promise')();
+
 module.exports = {
 	login: (req, res) => {
 		const dbi = req.app.get('db');
@@ -122,5 +124,26 @@ module.exports = {
 				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addBook' });
 				console.log(err);
 			});
+	},
+	addToShelf: (req, res) => {
+		const dbi = req.app.get('db');
+		console.log('BE', Array.isArray(req.body))
+		dbi.add_to_shelf([req.session.user.user_id, req.body]).then((book) => {
+			res.status(200).send(book);
+		})
+		.catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addToShelf' });
+			console.log(err);
+		});
+	},
+	getShelf: (req, res) => {
+		const dbi = req.app.get('db');
+		dbi.books_on_shelf([req.session.user.user_id]).then((books) => {
+			res.status(200).send(books);
+		})
+		.catch((err) => {
+			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.getShelf' });
+			console.log(err);
+		});
 	}
 };

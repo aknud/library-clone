@@ -1,7 +1,8 @@
 const initialState = {
 	user: {},
 	books: [],
-	cart: []
+	cart: [],
+	shelf: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,6 +17,9 @@ export default function reducer(state = initialState, action) {
 			return Object.assign({}, state, { cart: action.payload });
 		case CLEAR_CART:
 			return Object.assign({}, state, {cart: []});
+		case BOOKSHELF:
+		console.log('Bookshelf ran in reducer', action.payload);
+			return Object.assign({}, state, {shelf: action.payload});
 		default:
 			return state;
 	}
@@ -51,8 +55,15 @@ export const clearCart = ()=>{
 		type: CLEAR_CART
 	}
 }
+export const bookShelf = (books) => {
+	return {
+		type: BOOKSHELF,
+		payload: books
+	}
+}
 const USER_DATA = 'USER_DATA';
 const ALL_BOOKS = 'ALL_BOOKS';
 const UPDATE_BOOKS = 'UPDATE_BOOKS';
 const BOOKS_IN_CART = 'BOOKS_IN_CART';
 const CLEAR_CART = 'CLEAR_CART';
+const BOOKSHELF = 'BOOKSHELF';

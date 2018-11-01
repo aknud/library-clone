@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const ctrl = require('./controllers');
 const fkUser = require('./middleware');
 
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -36,9 +37,11 @@ app.post('/api/auth/login', ctrl.login);
 app.post('/api/auth/register', ctrl.register);
 app.post('/api/auth/logout', ctrl.logout);
 app.post('/api/addBook', ctrl.addBook);
-app.post('/api/addToCart/:id', ctrl.addToCart)
+app.post('/api/addToCart/:id', ctrl.addToCart);
+app.post('/api/addToShelf', ctrl.addToShelf);
 app.get('/api/allBooks', ctrl.getBooks);
 app.get('/api/cart', ctrl.booksInCart);
+app.get('/api/shelf', ctrl.getShelf);
 app.put('/api/editBook/:id', ctrl.editBook)
 app.delete('/api/removeFromCart/:id', ctrl.removeFromCart)
 app.delete('/api/delete/:id', ctrl.deleteBook);

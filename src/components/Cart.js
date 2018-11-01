@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
-import { booksInCart } from './../ducks/reducer';
+import swal from 'sweetalert';
+import { booksInCart, bookShelf } from './../ducks/reducer';
 
 class Cart extends React.Component {
 	componentDidMount = () => {
@@ -18,11 +19,17 @@ class Cart extends React.Component {
             this.props.booksInCart(res.data);
         });
 	}
-	clearCart = ()=> {
-		
+	checkoutCart = ()=> {
+		//put all book_id's in an array to send to the backend
+		let bookIds = this.props.cart.map(item => item.book_id)
+		axios.post(`/api/addToShelf`, bookIds).then((res) => {
+			this.props.bookShelf(res.data);
+		})
+		.catch((err) => console.log('checkoutCart has an error', err));
 	}
 
 	render() {
+		console.log(this.props)
 		const size = {
 			height: '115px',
 			width: '100px'
@@ -49,7 +56,7 @@ class Cart extends React.Component {
 			<div>
 				<Nav />
 				<h1>My Cart</h1>
-                <button>Checkout Books</button>
+                <button onClick={this.checkoutCart}>Checkout Books</button>
 				<div>{books}</div>
 			</div>
 		);
@@ -58,7 +65,8 @@ class Cart extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		books: state.books,
-		cart: state.cart
+		cart: state.cart,
+		shelf: state.shelf
 	};
 };
-export default connect(mapStateToProps, { booksInCart })(Cart);
+export default connect(mapStateToProps, { booksInCart, bookShelf })(Cart);
