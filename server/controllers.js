@@ -127,10 +127,7 @@ module.exports = {
 	},
 	addToShelf: (req, res) => {
 		const dbi = req.app.get('db');
-		console.log('BE', Array.isArray(req.body))
-		dbi.add_to_shelf([req.session.user.user_id, req.body]).then((book) => {
-			res.status(200).send(book);
-		})
+		dbi.add_to_shelf([req.session.user.user_id, req.body]).then(() => res.sendStatus(200))
 		.catch((err) => {
 			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addToShelf' });
 			console.log(err);
@@ -145,5 +142,17 @@ module.exports = {
 			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.getShelf' });
 			console.log(err);
 		});
-	}
+	},
+	removeFromShelf: (req, res) => {
+		const dbi = req.app.get('db');
+		console.log(req.params.id);
+			dbi.return_book([ req.session.user.user_id, req.params.id ])
+			.then((books) => {
+				res.status(200).send(books);
+			})
+			.catch((err) => {
+				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.booksInCart' });
+				console.log(err);
+			});
+	},
 };

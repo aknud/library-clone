@@ -13,23 +13,30 @@ class Cart extends React.Component {
 				this.props.booksInCart(res.data);
 			});
 		}
-    };
-    removeFromCart = (id) =>{
-        axios.delete(`/api/removeFromCart/${id}`).then((res) => {
-            this.props.booksInCart(res.data);
-        });
-	}
-	checkoutCart = ()=> {
+	};
+	removeFromCart = (id) => {
+		axios.delete(`/api/removeFromCart/${id}`).then((res) => {
+			this.props.booksInCart(res.data);
+		});
+	};
+	checkoutCart = () => {
 		//put all book_id's in an array to send to the backend
-		let bookIds = this.props.cart.map(item => item.book_id)
-		axios.post(`/api/addToShelf`, bookIds).then((res) => {
-			this.props.bookShelf(res.data);
-		})
-		.catch((err) => console.log('checkoutCart has an error', err));
-	}
+		let bookIds = this.props.cart.map((item) => item.book_id);
+
+		axios
+			.post(`/api/addToShelf`, bookIds)
+			.then(() => {
+				this.props.history.push('/browse');
+			})
+			.catch((err) => console.log('checkoutCart has an error', err));
+		swal({
+			title: 'Books have been added to your bookshelf.',
+			text: 'Go to My Shelf to see your titles.',
+			icon: 'success'
+		});
+	};
 
 	render() {
-		console.log(this.props)
 		const size = {
 			height: '115px',
 			width: '100px'
@@ -47,7 +54,7 @@ class Cart extends React.Component {
 						<Link to={`/details/${book.book_id}`}>
 							<button>Details</button>
 						</Link>
-                        <button onClick={()=>this.removeFromCart(book.librarycart_id)}>- Remove from cart</button>
+						<button onClick={() => this.removeFromCart(book.librarycart_id)}>- Remove from cart</button>
 					</div>
 				</div>
 			);
@@ -56,7 +63,7 @@ class Cart extends React.Component {
 			<div>
 				<Nav />
 				<h1>My Cart</h1>
-                <button onClick={this.checkoutCart}>Checkout Books</button>
+				<button onClick={this.checkoutCart}>Checkout Books</button>
 				<div>{books}</div>
 			</div>
 		);

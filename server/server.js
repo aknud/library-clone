@@ -42,8 +42,9 @@ app.post('/api/addToShelf', ctrl.addToShelf);
 app.get('/api/allBooks', ctrl.getBooks);
 app.get('/api/cart', ctrl.booksInCart);
 app.get('/api/shelf', ctrl.getShelf);
-app.put('/api/editBook/:id', ctrl.editBook)
-app.delete('/api/removeFromCart/:id', ctrl.removeFromCart)
+app.put('/api/editBook/:id', ctrl.editBook);
+app.delete('/api/removeFromCart/:id', ctrl.removeFromCart);
+app.delete('/api/returnBook/:id', ctrl.removeFromShelf)
 app.delete('/api/delete/:id', ctrl.deleteBook);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

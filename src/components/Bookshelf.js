@@ -2,19 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
-import { booksInCart, bookShelf } from './../ducks/reducer';
+import { getBooks, booksInCart, bookShelf } from './../ducks/reducer';
 import axios from 'axios';
 
 export class Bookshelf extends React.Component {
 	componentDidMount = () => {
-		axios.get('/api/shelf').then((res) => {
+		axios
+			.get('/api/shelf')
+			.then((res) => {
+				this.props.bookShelf(res.data);
+			})
+			.catch((err) => console.log('Bookshelf has an error', err));
+	};
+	returnBook = (shelf_id, book_id) => {
+		axios.delete(`/api/returnBook/${shelf_id}`).then((res) => {
 			this.props.bookShelf(res.data);
-		})
-		.catch((err) => console.log('Bookshelf has an error', err));
-	}
+			axios
+				.get('/api/allBooks')
+				.then((res) => {
+					this.props.getBooks(res.data);
+					console.log('getBooks updated');
+				})
+				.catch((err) => console.log('fetchBooks has an error', err));
+		}).catch((err) => console.log('returnBook has an error', err));
+	};
 
 	render() {
-        console.log('shelf',this.props.shelf)
 		const { shelf } = this.props;
 		const size = {
 			height: '115px',
@@ -33,6 +46,7 @@ export class Bookshelf extends React.Component {
 						<Link to={`/details/${book.book_id}`}>
 							<button>Details</button>
 						</Link>
+						<button onClick={() => this.returnBook(book.bs_id, book.book_id)}>Return Book</button>
 					</div>
 				</div>
 			);
@@ -51,4 +65,4 @@ const mapStateToProps = (state) => {
 		shelf: state.shelf
 	};
 };
-export default connect(mapStateToProps, { booksInCart, bookShelf })(Bookshelf);
+export default connect(mapStateToProps, { getBooks, booksInCart, bookShelf })(Bookshelf);
