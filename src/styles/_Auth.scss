@@ -2,51 +2,52 @@
     background: $main-bg;
     @include width-height(100%, 100vh);
     display: grid;
-    grid-template-columns: 80%;
-    justify-content: center;
-    align-items: center;
+    // grid-template-columns: 100%;
+    // justify-content: center;
+    // align-items: center;
 }
 .jumbo-div {
     height: 90vh;
     background: $tan-bg;
     font-family: $title-font;
-    font-size: 60px;
+    font-size: 40px;
     color: $main-bg;
     border-radius: 10px;
-    margin: auto 30px;
+    margin: auto 25px;
+    display: grid;
 }
 .av-tan {
     display: grid;
+    grid-template-rows: 30% 15%;
     justify-items: center;
 }
 .av-black{
-    @include width-height(60%, 350px);
+    height: 300px;
     display: grid;
-    grid-template-rows: 30% 30% 2fr;
+    grid-template-rows: 33% 33% 33%;
     align-items: center;
     justify-items: center;
-    margin: 50px auto;
     background: $grey-bg;
     font-family: $main-font;
-    font-size:  28px;
+    font-size:  20px;
     letter-spacing: 2px;
     color: $words;
     border-radius: 10px;
 }
 .av-book {
-    @include width-height(200px, 200px);
-    margin: 20px auto;
+    @include width-height(150px, 150px);
 }
 .btn {
     @include btn-style;
-    height: 70px;
-    padding: 0px 20px;
-    font-size: 42px;
-    border-style: none;
-    margin: 20px;
+    height: 50px;
+    font-size: 20px;
 }
+label {
+    margin: auto 30%
+}
+
 input {
     border-radius: 7px;
     background: $words;
-    margin: 20px;
+    margin: 2% 10%;
 }
