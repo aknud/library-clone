@@ -12,6 +12,9 @@ module.exports = {
 					console.log(req.session.user);
 					res.status(200).send(req.session.user);
 				}
+				else {
+					console.log(`No user found ${req.session.user}`)
+				}
 			})
 			.catch((err) => {
 				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.login' });
@@ -145,7 +148,6 @@ module.exports = {
 	},
 	removeFromShelf: (req, res) => {
 		const dbi = req.app.get('db');
-		console.log(req.params.id);
 			dbi.return_book([ req.session.user.user_id, req.params.id ])
 			.then((books) => {
 				res.status(200).send(books);

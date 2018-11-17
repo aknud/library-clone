@@ -2,14 +2,24 @@
     background-color: $blk-bg;
 }
 .nav-logo {
-    @include width-height(80px, 80px)
+    @include width-height(60px, 60px)
 }
+
+.navbar-toggler {
+    border: 1px solid $tan-bg;
+}
+
+button:focus {
+    outline: 5px auto $tan-bg;
+}
+
 h2 {
     font-size: 24px;
     font-family: $title-font;
     color: $tan-bg;
 }
-h6 {
-    color: $tan-bg;
-    font-family: $main-font
+.logout-button {
+    background: none;
+    border: none;
+    padding:0!important;
 }

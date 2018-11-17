@@ -24,12 +24,11 @@ massive(CONNECTION_STRING).then(db =>{
     console.log('Database reporting for duty.');
 })
 
-// app.use(fkUser.bypassAuthInDevelopment);
+app.use(fkUser.bypassAuthInDevelopment);
 app.get('/api/checkForBypass', (req, res) => {
     if(req.session.user){
         res.status(200).send(req.session.user)
     } else {
-        console.log('access denied')
         res.status(401).send('Access Denied')
     }
 });

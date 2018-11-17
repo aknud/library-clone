@@ -97,20 +97,28 @@ label {
 input {
   border-radius: 7px;
   background: #fbffe6;
-  margin: 2% 10%; }
+  margin: 2% 10%;
+  width: 80%; }
 
 .nav-main {
   background-color: #020402; }
 
 .nav-logo {
-  width: 80px;
-  height: 80px; }
+  width: 60px;
+  height: 60px; }
+
+.navbar-toggler {
+  border: 1px solid #c6b38e; }
+
+button:focus {
+  outline: 5px auto #c6b38e; }
 
 h2 {
   font-size: 24px;
   font-family: "Alegreya SC", serif;
   color: #c6b38e; }
 
-h6 {
-  color: #c6b38e;
-  font-family: "Open Sans", sans-serif; }
+.logout-button {
+  background: none;
+  border: none;
+  padding: 0 !important; }
