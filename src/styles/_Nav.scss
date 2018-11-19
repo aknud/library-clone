@@ -17,9 +17,10 @@ h2 {
     font-size: 24px;
     font-family: $title-font;
     color: $tan-bg;
+    padding: 10px 0px;
 }
 .logout-button {
     background: none;
     border: none;
-    padding:0!important;
+    padding:0;
 }

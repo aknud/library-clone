@@ -8,8 +8,8 @@ import { Navbar, NavbarToggler, Collapse, NavbarBrand, NavItem, NavLink } from '
 import logo from './../assets/tan-logo.svg';
 
 class NavBar extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
 			redirect: false,
 			collapsed: false
@@ -41,28 +41,20 @@ class NavBar extends React.Component {
 					</NavbarBrand>
 					<NavbarToggler onClick={this.toggleNavbar} className="navbar-dark" />
 					<Collapse isOpen={!this.state.collapsed} navbar>
-						<NavItem>
 							<Link to="/browse">
 								<h2>Browse</h2>
 							</Link>
-						</NavItem>
-						<NavItem>
 							<Link to="/cart">
 								<h2>Cart</h2>
 							</Link>
-						</NavItem>
-						<NavItem>
 							<Link to="/bookshelf">
 								<h2>My Shelf</h2>
 							</Link>
-						</NavItem>
-						<NavItem>
 							<Link to="/" onClick={this.logout}>
 								<button className="logout-button" >
 									<h2>Logout</h2>
 								</button>
 							</Link>
-						</NavItem>
 					</Collapse>
 				</Navbar>
 			</div>

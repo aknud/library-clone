@@ -116,9 +116,10 @@ button:focus {
 h2 {
   font-size: 24px;
   font-family: "Alegreya SC", serif;
-  color: #c6b38e; }
+  color: #c6b38e;
+  padding: 10px 0px; }
 
 .logout-button {
   background: none;
   border: none;
-  padding: 0 !important; }
+  padding: 0; }
