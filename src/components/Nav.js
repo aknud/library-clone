@@ -12,7 +12,7 @@ class NavBar extends React.Component {
 		super();
 		this.state = {
 			redirect: false,
-			collapsed: false
+			collapsed: true
 		};
 	}
 	toggleNavbar = () => {

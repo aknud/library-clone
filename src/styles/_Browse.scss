@@ -1,0 +1,53 @@
+.browse-main {
+  background-color: $main-bg;
+  background-repeat: repeat;
+  @include width-height(100%, 100%);
+  // display: grid;
+  // grid-template-columns: 100%;
+}
+
+.tan-container {
+  background-color: $tan-bg;
+  @include width-height(85%, 100%);
+  margin: 25px auto;
+  border-radius: 10px;
+}
+
+
+.title {
+  font-size: 2.2em;
+  font-family: $title-font;
+  color: $main-bg;
+  width: max-content;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+label {
+  font-family: $main-font;
+}
+.inStock {
+  display: inline;
+}
+.outStock {
+  display: inline;
+}
+
+button {
+  @include btn-style;
+  height: 40px;
+  font-size: 15px;
+}
+
+.checkboxes {
+  // background-color: red;
+  padding: 10px;
+  .form-inline .form-check {
+    width: 50%;
+  }
+}
+
+.genre-select {
+  // background-color: blue;
+}
+

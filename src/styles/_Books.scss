@@ -1,0 +1,43 @@
+.book-card {
+	font-family: $main-font;
+	background-color: $words;
+  // @include width-height(85%, 300px);
+  width: 85%;
+	margin: 15px auto;
+	display: grid;
+	justify-items: center;
+	border-radius: 10px;
+}
+
+.title-author {
+  text-align: center;
+  line-height: 25px;
+  padding: 5px 20px;
+  h1{
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+	p {
+		font-size: 0.7em;
+  }
+  h4 {
+    font-size: 1.1em;
+  }
+}
+
+.inStock-details {
+  font-family: $title-font;
+  font-size: 1.1em;
+  padding: 10px;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // align-items: center;
+  span{
+    font-family: $main-font;
+  }
+}
+
+img {
+	@include width-height(110px, 130px);
+	margin-top: 20px;
+}

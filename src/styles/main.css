@@ -122,4 +122,84 @@ h2 {
 .logout-button {
   background: none;
   border: none;
-  padding: 0; }
+  padding: 0px;
+  margin: 0; }
+
+.browse-main {
+  background-color: #4e1e29;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%; }
+
+.tan-container {
+  background-color: #c6b38e;
+  width: 85%;
+  height: 100%;
+  margin: 25px auto;
+  border-radius: 10px; }
+
+.title {
+  font-size: 2.2em;
+  font-family: "Alegreya SC", serif;
+  color: #4e1e29;
+  width: max-content;
+  padding: 20px;
+  margin: 10px auto; }
+
+label {
+  font-family: "Open Sans", sans-serif; }
+
+.inStock {
+  display: inline; }
+
+.outStock {
+  display: inline; }
+
+button {
+  height: 34px;
+  background: #a52422;
+  font-family: "Alegreya SC", serif;
+  font-size: 32px;
+  border-radius: 7px;
+  margin: 10px;
+  color: #c6b38e;
+  height: 40px;
+  font-size: 15px; }
+
+.checkboxes {
+  padding: 10px; }
+  .checkboxes .form-inline .form-check {
+    width: 50%; }
+
+.book-card {
+  font-family: "Open Sans", sans-serif;
+  background-color: #fbffe6;
+  width: 85%;
+  margin: 15px auto;
+  display: grid;
+  justify-items: center;
+  border-radius: 10px; }
+
+.title-author {
+  text-align: center;
+  line-height: 25px;
+  padding: 5px 20px; }
+  .title-author h1 {
+    font-size: 1.2em;
+    font-weight: bold; }
+  .title-author p {
+    font-size: 0.7em; }
+  .title-author h4 {
+    font-size: 1.1em; }
+
+.inStock-details {
+  font-family: "Alegreya SC", serif;
+  font-size: 1.1em;
+  padding: 10px; }
+  .inStock-details span {
+    font-family: "Open Sans", sans-serif; }
+
+img {
+  width: 110px;
+  height: 130px;
+  margin-top: 20px; }
