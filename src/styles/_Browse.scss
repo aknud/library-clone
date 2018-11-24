@@ -1,53 +1,63 @@
 .browse-main {
-  background-color: $main-bg;
-  background-repeat: repeat;
-  @include width-height(100%, 100%);
-  // display: grid;
-  // grid-template-columns: 100%;
+	background-color: $main-bg;
+	background-repeat: repeat;
+	@include width-height(100%, 100%);
+	// display: grid;
+	// grid-template-columns: 100%;
 }
 
 .tan-container {
-  background-color: $tan-bg;
-  @include width-height(85%, 100%);
-  margin: 25px auto;
-  border-radius: 10px;
+	background-color: $tan-bg;
+	@include width-height(85%, 100%);
+	margin: 25px auto;
+	border-radius: 10px;
 }
-
+.top-tan {
+	display: grid;
+}
 
 .title {
-  font-size: 2.2em;
-  font-family: $title-font;
-  color: $main-bg;
-  width: max-content;
-  padding: 20px;
-  margin: 10px auto;
+	font-size: 2.1em;
+	font-family: $title-font;
+	color: $main-bg;
+	width: max-content;
+	padding: 10px;
+	margin: 10px auto;
 }
 
-label {
+.options {
   font-family: $main-font;
-}
-.inStock {
-  display: inline;
-}
-.outStock {
-  display: inline;
+	display: grid;
+	justify-content: center;
+	grid-gap: 5px;
 }
 
-button {
-  @include btn-style;
-  height: 40px;
+.browse-btn {
+	@include btn-style;
+	height: 40px;
   font-size: 15px;
 }
-
+.form-check-inline {
+  //overrides reactstrap styling
+  margin: 0;
+  padding: 0;
+}
+.form-inline .form-check {
+	width: 50%;
+}
 .checkboxes {
-  // background-color: red;
-  padding: 10px;
-  .form-inline .form-check {
-    width: 50%;
-  }
+	padding: 10px;
 }
 
 .genre-select {
-  // background-color: blue;
+  display: flex;
+  margin: 5px auto;
 }
 
+.label-genre {
+  margin: 5px;
+}
+
+.this-btn {
+  margin: 0px auto;
+}

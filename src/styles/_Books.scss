@@ -1,7 +1,6 @@
 .book-card {
 	font-family: $main-font;
 	background-color: $words;
-  // @include width-height(85%, 300px);
   width: 85%;
 	margin: 15px auto;
 	display: grid;
@@ -29,15 +28,12 @@
   font-family: $title-font;
   font-size: 1.1em;
   padding: 10px;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // align-items: center;
   span{
     font-family: $main-font;
   }
 }
 
-img {
+.book-cover {
 	@include width-height(110px, 130px);
 	margin-top: 20px;
 }

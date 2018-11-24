@@ -37,11 +37,11 @@ export class Browse extends Component {
 			<div className="browse-main">
 				<Nav />
 				<div className="tan-container">
-					<div className="options">
+					<div className="top-tan">
 						<h1 className="title">Browse Inventory</h1>
-						<Form inline>
-							<FormGroup check className="checkboxes">
-								<Label check>
+						<Form className="options">
+							<FormGroup check inline>
+								<Label check className="checkboxes">
 									In Stock{' '}
 									<Input
 										type="checkbox"
@@ -51,7 +51,7 @@ export class Browse extends Component {
 										onChange={this.handleChange}
 									/>
 								</Label>
-								<Label>
+								<Label check className="checkboxes">
 									Out of Stock{' '}
 									<Input
 										type="checkbox"
@@ -62,8 +62,8 @@ export class Browse extends Component {
 									/>
 								</Label>
 							</FormGroup>
-							<FormGroup className="genre-select">
-								<Label>Genre</Label>
+							<FormGroup className="genre-select" >
+								<Label className="label-genre">Genre</Label>
 								<Input type="select" bsSize="sm" name="genre" onChange={this.handleChange}>
 									<option value="">All</option>
 									<option value="Fantasy">Fantasy</option>
@@ -76,9 +76,9 @@ export class Browse extends Component {
 								</Input>
 							</FormGroup>
 						</Form>
-						<div>
+						<div className="this-btn">
 							<Link to="/add">
-								<button>+Add New Book</button>
+								<button className="browse-btn">+Add New Book</button>
 							</Link>
 						</div>
 					</div>

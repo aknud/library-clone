@@ -31,8 +31,8 @@ class Books extends React.Component {
 			.map((book) => {
 				return (
 					<div key={book.book_id} className="book-card">
-							<picture>
-								<img src={book.image_url} alt={book.title} />
+							<picture >
+								<img className="book-cover" src={book.image_url} alt={book.title} />
 							</picture>
 						<dl className="title-author">
 							<h1>{book.title}</h1>

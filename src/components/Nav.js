@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { clearCart } from './../ducks/reducer';
-import { Navbar, NavbarToggler, Collapse, NavbarBrand, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarToggler, Collapse, NavbarBrand } from 'reactstrap';
 import logo from './../assets/tan-logo.svg';
 
 class NavBar extends React.Component {

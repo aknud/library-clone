@@ -17,6 +17,7 @@
     display: grid;
     grid-template-rows: 30% 15%;
     justify-items: center;
+    align-content: space-evenly;
 }
 .av-black{
     height: 300px;
@@ -34,16 +35,17 @@
 .av-book {
     @include width-height(150px, 150px);
 }
+
 .btn {
     @include btn-style;
     height: 50px;
     font-size: 20px;
 }
-label {
+.av-label {
     margin: auto 30%
 }
 
-input {
+.av-inputs {
     border-radius: 7px;
     background: $words;
     margin: 2% 10%;

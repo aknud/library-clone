@@ -76,8 +76,9 @@ export class Auth extends Component {
 						<h1>Book Exchange</h1>
 						<div className="av-black">
 							<div className="login-username">
-								<label>Username</label>
+								<label className="av-label">Username</label>
 								<input
+									className="av-inputs"
 									type="text"
 									name="username"
 									onChange={this.handleInput}
@@ -85,8 +86,9 @@ export class Auth extends Component {
 								/>
 							</div>
 							<div className="login-password">
-								<label>Password</label>
+								<label className="av-label">Password</label>
 								<input
+									className="av-inputs"
 									type="password"
 									name="password"
 									onChange={this.handleInput}
