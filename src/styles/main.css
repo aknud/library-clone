@@ -217,5 +217,16 @@ h2 {
 
 .book-cover {
   width: 110px;
-  height: 130px;
-  margin-top: 20px; }
+  height: 150px;
+  margin: 20px 0 10px 0; }
+
+.books-btn {
+  height: 34px;
+  background: #a52422;
+  font-family: "Alegreya SC", serif;
+  font-size: 32px;
+  border-radius: 7px;
+  margin: 10px;
+  color: #c6b38e;
+  height: 35px;
+  font-size: 0.8em; }

@@ -34,6 +34,12 @@
 }
 
 .book-cover {
-	@include width-height(110px, 130px);
-	margin-top: 20px;
+	@include width-height(110px, 150px);
+  margin: 20px 0 10px 0;
+}
+
+.books-btn {
+  @include btn-style;
+  height: 35px;
+  font-size: 0.8em;
 }

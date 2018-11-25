@@ -41,7 +41,7 @@ class Books extends React.Component {
 						<dl className="inStock-details">
 							<h4>In Stock: <span>{book.in_stock ? 'Yes' : 'No'}</span></h4>
 							<Link to={`/details/${book.book_id}`}>
-								<button>Details</button>
+								<button className="books-btn">Details</button>
 							</Link>
 						</dl>
 					</div>
