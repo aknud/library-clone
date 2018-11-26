@@ -1,11 +1,12 @@
-@mixin btn-style($height: 34px, $bg: $red-btn, $color: $tan-bg){
+@mixin btn-style($height: 2.4em, $bg: $red-btn, $color: $tan-bg){
     height: $height;
     background: $bg;
     font-family: $title-font;
-    font-size: 32px;
+    font-size: 1em;
     border-radius: 7px;
     margin: 10px;
     color: $color;
+    padding: 10px;
 }
 
  @mixin width-height($width, $height) {

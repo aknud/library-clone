@@ -18,8 +18,8 @@ export class Details extends React.Component {
 			title: 'Are you SURE you want to delete this?',
 			text: `If you press Obliterate, ${title} will be gone forever. No take-backs.`,
 			icon: 'warning',
-			buttons: ['Omg, NO!','Obliterate it!'],
-			dangerMode: true,
+			buttons: [ 'Omg, NO!', 'Obliterate it!' ],
+			dangerMode: true
 		})
 			.then((willDelete) => {
 				if (willDelete) {
@@ -33,7 +33,7 @@ export class Details extends React.Component {
 						text: 'No second chances'
 					});
 				} else {
-					swal(`${title} is safe. Thank you for letting it stay.`)
+					swal(`${title} is safe. Thank you for letting it stay.`);
 				}
 			})
 			.catch((err) => console.log('handleDelete has an error', err));
@@ -45,31 +45,42 @@ export class Details extends React.Component {
 		});
 	};
 	render() {
-		const size = {
-			height: '115px',
-			width: '100px'
-		};
 		let selectedBook = this.props.books
 			.filter((book) => book.book_id === +this.props.match.params.id)
 			.map((book) => {
 				return (
-					<div key={book.book_id}>
-						<div>
-							<picture>
-								<img style={size} src={book.image_url} alt={book.title} />
-							</picture>
-							<h1>Title: {book.title}</h1>
-							<h4>Author: {book.author}</h4>
-							<h4>Genre: {book.genre}</h4>
-							<h4>In Stock: {book.in_stock ? 'Yes' : 'No'}</h4>
+					<div key={book.book_id} className="book-info">
+						<img className="book-cover" src={book.image_url} alt={book.title} />
+						<div >
+							<h4>
+								Title: <span className="book-info-details">{book.title}</span>
+							</h4>
+							<h4>
+								Author: <span className="book-info-details">{book.author}</span>
+							</h4>
+							<h4>
+								Genre: <span className="book-info-details">{book.genre}</span>
+							</h4>
+							<h4>
+								In Stock: <span className="book-info-details">{book.in_stock ? 'Yes' : 'No'}</span>
+							</h4>
 							<h4>Description:</h4>
-							<p>{book.description}</p>
+							<p className="book-info-details description">{book.description}</p>
+						</div>
+						<div className="details-btns-container">
 							<Link to={`/edit/${book.book_id}`}>
-								<button>Edit</button>
+								<button className="details-btns">Edit</button>
 							</Link>
-							<button onClick={() => this.handleDelete(+book.book_id, book.title)}>Delete</button>
+							<button
+								className="details-btns"
+								onClick={() => this.handleDelete(+book.book_id, book.title)}
+							>
+								Delete
+							</button>
 							{book.in_stock ? (
-								<button onClick={() => this.addToCart(book.book_id)}>+ Add to Cart</button>
+								<button className="details-btns" onClick={() => this.addToCart(book.book_id)}>
+									+ Add to Cart
+								</button>
 							) : null}
 						</div>
 					</div>
@@ -77,11 +88,13 @@ export class Details extends React.Component {
 			});
 
 		return (
-			<div>
+			<div className="details-main">
 				<Nav />
-				<h1>Details</h1>
-				<button onClick={() => this.props.history.goBack()}>Back</button>
-				<div>{selectedBook}</div>
+				<div className="details-tan">
+					<h1 className="title">Details</h1>
+					<button className="details-back-btn" onClick={() => this.props.history.goBack()}>Back</button>
+					<div className="details-book-container">{selectedBook}</div>
+				</div>
 			</div>
 		);
 	}

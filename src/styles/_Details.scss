@@ -1,0 +1,52 @@
+.details-main {
+	background-color: $main-bg;
+	@include width-height(100%, 100vh);
+}
+
+.details-tan {
+	background-color: $tan-bg;
+	@include width-height(85%, 81.5%);
+	margin: 5% auto;
+  border-radius: 10px;
+  display: grid;
+}
+
+.details-book-container {
+	@include width-height(85%, 90%);
+	background-color: $words;
+	margin: 20px auto;
+  border-radius: 10px;
+  display: grid;
+	.book-cover {
+		margin: 15px 26.4%;
+	}
+}
+
+.book-info {
+	font-family: $title-font;
+	font-size: 1.2em;
+	padding: 20px;
+	.book-info-details {
+		font-family: $main-font;
+		font-size: .9em;
+	}
+}
+.description {
+  height: 100px;
+  overflow: auto;
+}
+.details-btns-container {
+  margin-top: 10px;
+}
+.details-btns {
+  @include btn-style;
+  height: 2.2em;
+  font-size: 0.8em;
+  margin: 4.6px;
+  padding: 4px;
+}
+
+.details-back-btn {
+  width: max-content;
+  margin: auto auto;
+}

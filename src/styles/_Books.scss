@@ -28,6 +28,8 @@
   font-family: $title-font;
   font-size: 1.1em;
   padding: 10px;
+  display: grid;
+  justify-items: center;
   span{
     font-family: $main-font;
   }
@@ -40,6 +42,5 @@
 
 .books-btn {
   @include btn-style;
-  height: 35px;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }

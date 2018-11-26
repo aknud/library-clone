@@ -82,13 +82,14 @@ table {
   height: 150px; }
 
 .btn {
-  height: 34px;
+  height: 2.4em;
   background: #a52422;
   font-family: "Alegreya SC", serif;
-  font-size: 32px;
+  font-size: 1em;
   border-radius: 7px;
   margin: 10px;
   color: #c6b38e;
+  padding: 10px;
   height: 50px;
   font-size: 20px; }
 
@@ -157,15 +158,14 @@ h2 {
   grid-gap: 5px; }
 
 .browse-btn {
-  height: 34px;
+  height: 2.4em;
   background: #a52422;
   font-family: "Alegreya SC", serif;
-  font-size: 32px;
+  font-size: 1em;
   border-radius: 7px;
   margin: 10px;
   color: #c6b38e;
-  height: 40px;
-  font-size: 15px; }
+  padding: 10px; }
 
 .form-check-inline {
   margin: 0;
@@ -211,7 +211,9 @@ h2 {
 .inStock-details {
   font-family: "Alegreya SC", serif;
   font-size: 1.1em;
-  padding: 10px; }
+  padding: 10px;
+  display: grid;
+  justify-items: center; }
   .inStock-details span {
     font-family: "Open Sans", sans-serif; }
 
@@ -221,12 +223,68 @@ h2 {
   margin: 20px 0 10px 0; }
 
 .books-btn {
-  height: 34px;
+  height: 2.4em;
   background: #a52422;
   font-family: "Alegreya SC", serif;
-  font-size: 32px;
+  font-size: 1em;
   border-radius: 7px;
   margin: 10px;
   color: #c6b38e;
-  height: 35px;
-  font-size: 0.8em; }
+  padding: 10px;
+  font-size: 0.9em; }
+
+.details-main {
+  background-color: #4e1e29;
+  width: 100%;
+  height: 100vh; }
+
+.details-tan {
+  background-color: #c6b38e;
+  width: 85%;
+  height: 81.5%;
+  margin: 5% auto;
+  border-radius: 10px;
+  display: grid; }
+
+.details-book-container {
+  width: 85%;
+  height: 90%;
+  background-color: #fbffe6;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: grid; }
+  .details-book-container .book-cover {
+    margin: 15px 26.4%; }
+
+.book-info {
+  font-family: "Alegreya SC", serif;
+  font-size: 1.2em;
+  padding: 20px; }
+  .book-info .book-info-details {
+    font-family: "Open Sans", sans-serif;
+    font-size: .9em; }
+
+.description {
+  height: 100px;
+  overflow: auto; }
+
+.details-btns-container {
+  margin-top: 10px; }
+
+.details-btns {
+  height: 2.4em;
+  background: #a52422;
+  font-family: "Alegreya SC", serif;
+  font-size: 1em;
+  border-radius: 7px;
+  margin: 10px;
+  color: #c6b38e;
+  padding: 10px;
+  height: 2.2em;
+  font-size: 0.8em;
+  margin: 4.6px;
+  padding: 4px; }
+
+.details-back-btn {
+  width: max-content;
+  margin: auto auto; }
