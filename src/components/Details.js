@@ -91,7 +91,7 @@ export class Details extends React.Component {
 			<div className="details-main">
 				<Nav />
 				<div className="details-tan">
-					<h1 className="title">Details</h1>
+					<h1 className="details-title">Details</h1>
 					<button className="details-back-btn" onClick={() => this.props.history.goBack()}>Back</button>
 					<div className="details-book-container">{selectedBook}</div>
 				</div>

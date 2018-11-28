@@ -1,22 +1,37 @@
 .details-main {
 	background-color: $main-bg;
 	@include width-height(100%, 100vh);
+	display: grid;
+	grid-template-rows: min-content;
 }
 
 .details-tan {
 	background-color: $tan-bg;
-	@include width-height(85%, 81.5%);
+	// @include width-height(85%, 81.5%);
+	width: 85%;
 	margin: 5% auto;
-  border-radius: 10px;
-  display: grid;
+	border-radius: 10px;
+	display: grid;
+	grid-template-rows: 10% 5% 75%;
+	align-items: center;
+	align-content: center;
+}
+
+.details-title {
+	font-size: 2.1em;
+	font-family: $title-font;
+	color: $main-bg;
+	width: max-content;
+	margin: 10px auto;
 }
 
 .details-book-container {
 	@include width-height(85%, 90%);
 	background-color: $words;
 	margin: 20px auto;
-  border-radius: 10px;
-  display: grid;
+	border-radius: 10px;
+	// display: grid;
+	// justify-content: center;
 	.book-cover {
 		margin: 15px 26.4%;
 	}
@@ -25,28 +40,30 @@
 .book-info {
 	font-family: $title-font;
 	font-size: 1.2em;
-	padding: 20px;
+	padding: 0px 20px 20px 20px;
+	// display: grid;
+	// justify-items: center;
 	.book-info-details {
 		font-family: $main-font;
 		font-size: .9em;
 	}
 }
 .description {
-  height: 100px;
-  overflow: auto;
+	height: 100px;
+	overflow: auto;
 }
 .details-btns-container {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 .details-btns {
-  @include btn-style;
-  height: 2.2em;
-  font-size: 0.8em;
-  margin: 4.6px;
-  padding: 4px;
+	@include btn-style;
+	height: 2.2em;
+	font-size: 0.8em;
+	margin: 4.6px;
+	padding: 4px;
 }
 
 .details-back-btn {
-  width: max-content;
-  margin: auto auto;
+	@include btn-style;
+	margin: auto auto;
 }
