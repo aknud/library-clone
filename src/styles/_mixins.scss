@@ -1,22 +1,32 @@
-@mixin btn-style($height: 2.4em, $bg: $red-btn, $color: $tan-bg){
-    height: $height;
-    background: $bg;
-    font-family: $title-font;
-    font-size: 1em;
-    border-radius: 7px;
-    margin: 10px;
-    color: $color;
-    padding: 10px;
+@mixin btn-style($height: 2.4em, $bg: $red-btn, $color: $tan-bg) {
+	height: $height;
+	background: $bg;
+	font-family: $title-font;
+	font-size: 1em;
+	border-radius: 7px;
+	margin: 10px;
+	color: $color;
+   padding: 10px;
+   border: none;
 }
 
- @mixin width-height($width, $height) {
-    width: $width;
-    height: $height;
- }
+@mixin width-height($width, $height) {
+	width: $width;
+	height: $height;
+}
 
- @mixin center {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: auto;
-  }
+@mixin title() {
+	font-size: 2.1em;
+	font-family: $title-font;
+	color: $main-bg;
+	width: max-content;
+	margin: 10px auto;
+}
+
+@mixin inputs() {
+	border-radius: 7px;
+	background: $words;
+	margin: 2% 10%;
+	width: 80%;
+}
+

@@ -15,12 +15,8 @@
 }
 
 .title {
-	font-size: 2.1em;
-	font-family: $title-font;
-	color: $main-bg;
-	width: max-content;
+	@include title;
 	padding: 10px;
-	margin: 10px auto;
 }
 
 .options {

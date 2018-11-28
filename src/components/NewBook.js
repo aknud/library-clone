@@ -3,25 +3,25 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from './Nav';
 import { Form, FormGroup, Label, Input, Col, Button } from 'reactstrap';
-import {updateBooks} from './../ducks/reducer';
+import { updateBooks } from './../ducks/reducer';
 
 export class NewBook extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            image_url: '',
-            title: '',
-            author: '',
-            genre: '',
-            description: '',
-        }
-    }
-    handleChange = (e) => {
+	constructor() {
+		super();
+		this.state = {
+			image_url: '',
+			title: '',
+			author: '',
+			genre: '',
+			description: ''
+		};
+	}
+	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
-    };
-    handleSubmit = (e) => {
+	};
+	handleSubmit = (e) => {
 		e.preventDefault();
 		const { image_url, title, author, genre, description } = this.state;
 		let payload = { image_url, title, author, genre, description };
@@ -35,19 +35,29 @@ export class NewBook extends React.Component {
 	};
 	render() {
 		return (
-			<div>
+			<div className="edit-main">
 				<Nav />
-				<h1>Add a Book.</h1>
-				<button onClick={() => this.props.history.goBack()}>Back</button>
-				<div>
-					<Form>
+				<div className="edit-tan">
+					<h1 className="edit-title">Add a Book</h1>
+					<button className="edit-back-btn" onClick={() => this.props.history.goBack()}>
+						Back
+					</button>
+					<Form className="edit-form">
 						<FormGroup row>
-							<Label for="image_url" sm={1}>Url</Label>
+							<Label for="image_url" sm={1}>
+								Image Url
+							</Label>
 							<Col sm={8}>
-								<Input type="url" name="image_url" value={this.state.image_url} onChange={this.handleChange}/>
+								<Input
+									type="url"
+									name="image_url"
+									className="edit-inputs"
+									value={this.state.image_url}
+									onChange={this.handleChange}
+								/>
 							</Col>
-                            <Col sm={8}>
-								<img src={this.state.image_url} alt=""/>
+							<Col sm={8} className="edit-book-cover-container">
+								<img src={this.state.image_url} alt={this.state.title} className="edit-book-cover" />
 							</Col>
 						</FormGroup>
 						<FormGroup row>
@@ -55,7 +65,13 @@ export class NewBook extends React.Component {
 								Title
 							</Label>
 							<Col sm={8}>
-								<Input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+								<Input
+									type="text"
+									className="edit-inputs"
+									name="title"
+									value={this.state.title}
+									onChange={this.handleChange}
+								/>
 							</Col>
 						</FormGroup>
 						<FormGroup row>
@@ -63,7 +79,13 @@ export class NewBook extends React.Component {
 								Author
 							</Label>
 							<Col sm={8}>
-								<Input type="text" name="author" value={this.state.author} onChange={this.handleChange} />
+								<Input
+									type="text"
+									name="author"
+									className="edit-inputs"
+									value={this.state.author}
+									onChange={this.handleChange}
+								/>
 							</Col>
 						</FormGroup>
 						<FormGroup row>
@@ -71,7 +93,14 @@ export class NewBook extends React.Component {
 								Genre
 							</Label>
 							<Col sm={8}>
-								<Input type="select" bsSize="sm" name="genre" onChange={this.handleChange} >
+								<Input
+									type="select"
+									bsSize="sm"
+									name="genre"
+									className="edit-inputs"
+									onChange={this.handleChange}
+								>
+									<option value="">Select Genre</option>
 									<option value="Fantasy">Fantasy</option>
 									<option value="Mystery">Mystery</option>
 									<option value="Childrens">Childrens</option>
@@ -87,12 +116,20 @@ export class NewBook extends React.Component {
 								Description
 							</Label>
 							<Col sm={8}>
-								<Input type="textarea" name="description" value={this.state.description} onChange={this.handleChange} />
+								<Input
+									type="textarea"
+									name="description"
+									className="edit-inputs"
+									value={this.state.description}
+									onChange={this.handleChange}
+								/>
 							</Col>
 						</FormGroup>
-						<FormGroup check row>
+						<FormGroup row>
 							<Col sm={{ size: 10, offset: 2 }}>
-								<Button type="submit" onClick={this.handleSubmit}>+ Add Book to Inventory</Button>
+								<Button type="submit" onClick={this.handleSubmit}>
+									+ Add Book to Inventory
+								</Button>
 							</Col>
 						</FormGroup>
 					</Form>
@@ -101,4 +138,4 @@ export class NewBook extends React.Component {
 		);
 	}
 }
-export default connect(null, {updateBooks})(NewBook);
+export default connect(null, { updateBooks })(NewBook);

@@ -96,10 +96,10 @@ export class Auth extends Component {
 								/>
 							</div>
 							<div>
-								<button className="btn" onClick={this.registerClick}>
+								<button className="av-btn" onClick={this.registerClick}>
 									Register
 								</button>
-								<button className="btn" onClick={this.loginClick}>
+								<button className="av-btn" onClick={this.loginClick}>
 									Login
 								</button>
 							</div>

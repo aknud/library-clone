@@ -1,0 +1,52 @@
+.edit-main {
+	background-color: $main-bg;
+	display: grid;
+}
+
+.edit-tan {
+	background-color: $tan-bg;
+	width: 85%;
+	margin: 5% auto;
+	border-radius: 10px;
+  display: grid;
+  justify-items: center;
+}
+
+.edit-title {
+	@include title;
+}
+
+.edit-back-btn {
+  @include btn-style;
+}
+
+.edit-form {
+  display: grid;
+  justify-items: center;
+}
+
+.edit-book-cover-container {
+  display: grid;
+}
+
+.edit-book-cover {
+  @include width-height(110px, 150px);
+  margin: 15px auto;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.edit-inputs {
+  @include inputs;
+  font-family: $main-font;
+}
+
+.col-form-label {
+  font-family: $main-font;
+	display: grid;
+	justify-items: center;
+}
+
+.btn-secondary {
+  @include btn-style;
+  padding: 7.2px;
+}
