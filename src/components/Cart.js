@@ -37,34 +37,45 @@ class Cart extends React.Component {
 	};
 
 	render() {
-		const size = {
-			height: '115px',
-			width: '100px'
-		};
 		let books = this.props.cart.map((book) => {
 			return (
-				<div key={book.librarycart_id} style={{ border: '1px solid red' }}>
-					<div>
+				<div key={book.librarycart_id}>
+					<div className="book-card">
 						<picture>
-							<img style={size} src={book.image_url} alt={book.title} />
+							<img src={book.image_url} alt={book.title} className="book-cover" />
 						</picture>
-						<h1>Title: {book.title}</h1>
-						<h4>Author: {book.author}</h4>
-						<h4>In Stock: {book.in_stock ? 'Yes' : 'No'}</h4>
-						<Link to={`/details/${book.book_id}`}>
-							<button>Details</button>
-						</Link>
-						<button onClick={() => this.removeFromCart(book.librarycart_id)}>- Remove from cart</button>
+						<dl className="title-author">
+							<h1>{book.title}</h1>
+							<p>by</p>
+							<h4>{book.author}</h4>
+						</dl>
+						<dl className="inStock-details">
+							<h4>
+								In Stock: <span>{book.in_stock ? 'Yes' : 'No'}</span>
+							</h4>
+							<Link to={`/details/${book.book_id}`}>
+								<button className="cart-btns">Details</button>
+							</Link>
+							<button className="cart-btns" onClick={() => this.removeFromCart(book.librarycart_id)}>
+								Remove from cart
+							</button>
+						</dl>
 					</div>
 				</div>
 			);
 		});
 		return (
-			<div>
+			<div className="cart-main">
 				<Nav />
-				<h1>My Cart</h1>
-				<button onClick={this.checkoutCart}>Checkout Books</button>
-				<div>{books}</div>
+				<div className="cart-tan">
+					<div className="cart-top-tan">
+						<h1 className="cart-title">My Cart</h1>
+						<button className="cart-btns" onClick={this.checkoutCart}>
+							Checkout Books
+						</button>
+					</div>
+					<div className="cart-books-container">{books}</div>
+				</div>
 			</div>
 		);
 	}

@@ -5,11 +5,10 @@
 }
 
 .tan-container {
-	background-color: $tan-bg;
-	@include width-height(85%, 100%);
-	margin: 25px auto;
-	border-radius: 10px;
+	@include tan;
+	height: 100%;
 }
+
 .top-tan {
 	display: grid;
 }

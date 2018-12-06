@@ -30,3 +30,10 @@
 	width: 80%;
 }
 
+@mixin tan {
+	background-color: $tan-bg;
+	border-radius: 10px;
+	width: 85%;
+	margin: 7.5% auto;
+	display: grid;
+}

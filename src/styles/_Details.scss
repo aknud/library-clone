@@ -6,12 +6,9 @@
 }
 
 .details-tan {
-	background-color: $tan-bg;
-	width: 85%;
-	margin: 5% auto;
-	border-radius: 10px;
-	display: grid;
-	grid-template-rows: 10% 5% 75%;
+	@include tan;
+	margin: auto auto;
+	grid-template-rows: 10% 5% 85%;
 	align-items: center;
 	align-content: center;
 }
@@ -25,8 +22,6 @@
 	background-color: $words;
 	margin: 20px auto;
 	border-radius: 10px;
-	// display: grid;
-	// justify-content: center;
 	.book-cover {
 		margin: 15px 26.4%;
 	}

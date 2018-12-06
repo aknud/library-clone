@@ -1,0 +1,32 @@
+.cart-main {
+  background-color: $main-bg;
+  background-repeat: repeat;
+  @include width-height(100%, 100%)
+}
+
+.cart-tan {
+  @include tan;
+  height: 100%;
+}
+
+.cart-top-tan {
+  margin: auto;
+}
+
+.cart-title {
+  @include title;
+}
+
+.cart-book-container {
+	@include width-height(85%, 90%);
+	background-color: $words;
+	margin: 20px auto;
+	border-radius: 10px;
+	.book-cover {
+		margin: 15px 26.4%;
+	}
+}
+
+.cart-btns {
+  @include btn-style;
+}
