@@ -1,12 +1,14 @@
 .cart-main {
   background-color: $main-bg;
   background-repeat: repeat;
-  @include width-height(100%, 100%)
+  @include width-height(100%, 100%);
+  min-height: 100vh;
 }
 
 .cart-tan {
   @include tan;
   height: 100%;
+  min-height: 82vh;
 }
 
 .cart-top-tan {

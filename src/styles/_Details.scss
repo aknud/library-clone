@@ -1,13 +1,12 @@
 .details-main {
 	background-color: $main-bg;
-	@include width-height(100%, 100vh);
+	@include width-height(100%, 100%);
 	display: grid;
 	grid-template-rows: min-content;
 }
 
 .details-tan {
 	@include tan;
-	margin: auto auto;
 	grid-template-rows: 10% 5% 85%;
 	align-items: center;
 	align-content: center;
@@ -18,7 +17,7 @@
 }
 
 .details-book-container {
-	@include width-height(85%, 90%);
+	@include width-height(85%, 92%);
 	background-color: $words;
 	margin: 20px auto;
 	border-radius: 10px;
@@ -29,6 +28,7 @@
 
 .book-info {
 	font-family: $title-font;
+	line-height: normal;
 	font-size: 1.2em;
 	padding: 0px 20px 20px 20px;
 	.book-info-details {

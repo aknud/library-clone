@@ -2,11 +2,13 @@
 	background-color: $main-bg;
 	background-repeat: repeat;
 	@include width-height(100%, 100%);
+	min-height: 100vh;
 }
 
 .tan-container {
 	@include tan;
 	height: 100%;
+	min-height: 82vh;
 }
 
 .top-tan {
