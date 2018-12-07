@@ -422,3 +422,44 @@ h2 {
   color: #c6b38e;
   padding: 10px;
   border: none; }
+
+.shelf-main {
+  background-color: #4e1e29;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%; }
+
+.shelf-tan {
+  background-color: #c6b38e;
+  border-radius: 10px;
+  width: 85%;
+  margin: 7.5% auto;
+  display: grid;
+  height: 100%; }
+
+.shelf-title {
+  font-size: 2.1em;
+  font-family: "Alegreya SC", serif;
+  color: #4e1e29;
+  width: max-content;
+  margin: 10px auto; }
+
+.shelf-book-container {
+  width: 85%;
+  height: 90%;
+  background-color: #fbffe6;
+  margin: 20px auto;
+  border-radius: 10px; }
+  .shelf-book-container .book-cover {
+    margin: 15px 26.4%; }
+
+.shelf-btns {
+  height: 2.4em;
+  background: #a52422;
+  font-family: "Alegreya SC", serif;
+  font-size: 1em;
+  border-radius: 7px;
+  margin: 10px;
+  color: #c6b38e;
+  padding: 10px;
+  border: none; }

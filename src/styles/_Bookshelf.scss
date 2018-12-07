@@ -1,0 +1,28 @@
+.shelf-main {
+  background-color: $main-bg;
+  background-repeat: repeat;
+  @include width-height(100%, 100%);
+}
+
+.shelf-tan {
+  @include tan;
+  height: 100%;
+}
+
+.shelf-title {
+  @include title;
+}
+
+.shelf-book-container {
+  @include width-height(85%, 90%);
+	background-color: $words;
+	margin: 20px auto;
+	border-radius: 10px;
+	.book-cover {
+		margin: 15px 26.4%;
+	}
+}
+
+.shelf-btns {
+  @include btn-style;
+}

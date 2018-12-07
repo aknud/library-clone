@@ -15,47 +15,56 @@ export class Bookshelf extends React.Component {
 			.catch((err) => console.log('Bookshelf has an error', err));
 	};
 	returnBook = (shelf_id, book_id) => {
-		axios.delete(`/api/returnBook/${shelf_id}`).then((res) => {
-			this.props.bookShelf(res.data);
-			axios
-				.get('/api/allBooks')
-				.then((res) => {
-					this.props.getBooks(res.data);
-					console.log('getBooks updated');
-				})
-				.catch((err) => console.log('fetchBooks has an error', err));
-		}).catch((err) => console.log('returnBook has an error', err));
+		axios
+			.delete(`/api/returnBook/${shelf_id}`)
+			.then((res) => {
+				this.props.bookShelf(res.data);
+				axios
+					.get('/api/allBooks')
+					.then((res) => {
+						this.props.getBooks(res.data);
+						console.log('getBooks updated');
+					})
+					.catch((err) => console.log('fetchBooks has an error', err));
+			})
+			.catch((err) => console.log('returnBook has an error', err));
 	};
 
 	render() {
-		const { shelf } = this.props;
-		const size = {
-			height: '115px',
-			width: '100px'
-		};
-		let display = shelf.map((book) => {
+		let display = this.props.shelf.map((book) => {
 			return (
-				<div key={book.book_id} style={{ border: '1px solid red' }}>
-					<div>
+				<div key={book.book_id}>
+					<div className="book-card">
 						<picture>
-							<img style={size} src={book.image_url} alt={book.title} />
+							<img src={book.image_url} alt={book.title} className="book-cover" />
 						</picture>
-						<h1>Title: {book.title}</h1>
-						<h4>Author: {book.author}</h4>
-						<h4>In Stock: {book.in_stock ? 'Yes' : 'No'}</h4>
-						<Link to={`/details/${book.book_id}`}>
-							<button>Details</button>
-						</Link>
-						<button onClick={() => this.returnBook(book.bs_id, book.book_id)}>Return Book</button>
+						<dl className="title-author">
+							<h1>{book.title}</h1>
+							<p>by</p>
+							<h4>{book.author}</h4>
+						</dl>
+						<dl className="inStock-details">
+							<h4>
+								In Stock: <span>{book.in_stock ? 'Yes' : 'No'}</span>
+							</h4>
+							<Link to={`/details/${book.book_id}`}>
+								<button className="shelf-btns">Details</button>
+							</Link>
+							<button className="shelf-btns" onClick={() => this.returnBook(book.bs_id, book.book_id)}>
+								Return Book
+							</button>
+						</dl>
 					</div>
 				</div>
 			);
 		});
 		return (
-			<div>
+			<div className="shelf-main">
 				<Nav />
-				<h1>My Shelf</h1>
-				<div>{display}</div>
+				<div className="shelf-tan">
+					<h1 className="shelf-title">My Shelf</h1>
+					<div>{display}</div>
+				</div>
 			</div>
 		);
 	}
