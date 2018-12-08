@@ -102,6 +102,9 @@ table {
   margin: 2% 10%;
   width: 80%; }
 
+.auth-title {
+  margin: auto; }
+
 .nav-main {
   background-color: #020402; }
 
@@ -217,7 +220,7 @@ h2 {
   font-size: 1.1em;
   padding: 10px;
   display: grid;
-  grid-template-rows: 24px 60px 60px;
+  grid-template-rows: 24px 60px;
   justify-items: center; }
   .inStock-details span {
     font-family: "Open Sans", sans-serif; }
@@ -399,7 +402,9 @@ h2 {
   min-height: 82vh; }
 
 .cart-top-tan {
-  margin: auto; }
+  margin: 10px auto; }
+  .cart-top-tan button {
+    margin: auto; }
 
 .cart-title {
   font-size: 2.1em;

@@ -16,6 +16,7 @@ export default function reducer(state = initialState, action) {
 		case BOOKS_IN_CART:
 			return Object.assign({}, state, { cart: action.payload });
 		case CLEAR_CART:
+		console.log('clear cart ran')
 			return Object.assign({}, state, {cart: []});
 		case BOOKSHELF:
 		console.log('Bookshelf ran in reducer', action.payload);

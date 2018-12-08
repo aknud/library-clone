@@ -43,6 +43,11 @@ export class Details extends React.Component {
 			this.props.booksInCart(res.data);
 			this.props.history.push('/browse');
 		});
+		swal({
+			title: 'Book has been added to your cart.',
+			text: 'Go to Cart to checkout items to your shelf.',
+			icon: 'success'
+		})
 	};
 	render() {
 		let selectedBook = this.props.books

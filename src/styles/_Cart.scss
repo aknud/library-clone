@@ -1,22 +1,25 @@
 .cart-main {
-  background-color: $main-bg;
-  background-repeat: repeat;
-  @include width-height(100%, 100%);
-  min-height: 100vh;
+	background-color: $main-bg;
+	background-repeat: repeat;
+	@include width-height(100%, 100%);
+	min-height: 100vh;
 }
 
 .cart-tan {
-  @include tan;
-  height: 100%;
-  min-height: 82vh;
+	@include tan;
+	height: 100%;
+	min-height: 82vh;
 }
 
 .cart-top-tan {
-  margin: auto;
+	margin: 10px auto;
+	button {
+		margin: auto;
+	}
 }
 
 .cart-title {
-  @include title;
+	@include title;
 }
 
 .cart-book-container {
@@ -30,5 +33,5 @@
 }
 
 .cart-btns {
-  @include btn-style;
+	@include btn-style;
 }

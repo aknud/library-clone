@@ -73,7 +73,7 @@ export class Auth extends Component {
 				<Jumbotron className="jumbo-div">
 					<div className="av-tan">
 						<img className="av-book" src={book} alt="book" />
-						<h1>Book Exchange</h1>
+						<h1 className="auth-title">Book Exchange</h1>
 						<div className="av-black">
 							<div className="login-username">
 								<label className="av-label">Username</label>

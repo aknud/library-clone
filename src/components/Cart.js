@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
 import swal from 'sweetalert';
-import { booksInCart, bookShelf } from './../ducks/reducer';
+import { booksInCart, bookShelf, clearCart } from './../ducks/reducer';
 
 class Cart extends React.Component {
 	componentDidMount = () => {
@@ -34,6 +34,7 @@ class Cart extends React.Component {
 			text: 'Go to My Shelf to see your titles.',
 			icon: 'success'
 		});
+		this.props.clearCart();
 	};
 
 	render() {
@@ -70,9 +71,9 @@ class Cart extends React.Component {
 				<div className="cart-tan">
 					<div className="cart-top-tan">
 						<h1 className="cart-title">My Cart</h1>
-						<button className="cart-btns" onClick={this.checkoutCart}>
+						{(this.props.cart.length === 0) ? null : <button className="cart-btns" onClick={this.checkoutCart}>
 							Checkout Books
-						</button>
+						</button>}
 					</div>
 					<div className="cart-books-container">{books}</div>
 				</div>
@@ -87,4 +88,4 @@ const mapStateToProps = (state) => {
 		shelf: state.shelf
 	};
 };
-export default connect(mapStateToProps, { booksInCart, bookShelf })(Cart);
+export default connect(mapStateToProps, { booksInCart, bookShelf, clearCart })(Cart);
