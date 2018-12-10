@@ -23,23 +23,12 @@ export class Auth extends Component {
 				console.log('auth books ran');
 			})
 			.catch((err) => console.log("You've got an error", err));
-		//delete this if statement when done with development
-		// if (this.props.user) {
-		// 	axios
-		// 		.get('/api/checkForBypass')
-		// 		.then((res) => {
-		// 			this.props.getUserData(res.data);
-		// 			this.setState({ redirect: true });
-		// 		})
-		// 		.catch((err) => console.log("You've got an error", err));
-		// }
 	};
 	handleInput = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 	registerClick = () => {
 		const { username, password } = this.state;
-		console.log(username, password)
 		axios
 			.post('/api/auth/register', { username, password })
 			.then((res) => {
@@ -50,7 +39,6 @@ export class Auth extends Component {
 	};
 	loginClick = () => {
 			const { username, password } = this.state;
-			console.log(username, password)
 			axios
 				.post('/api/auth/login', { username, password })
 				.then((res) => {

@@ -4,10 +4,13 @@ const session = require('express-session');
 const massive = require('massive');
 const bodyParser = require('body-parser');
 const ctrl = require('./controllers');
-const fkUser = require('./middleware');
+// const fkUser = require('./middleware');
+const path = require('path');
 
 
 const app = express();
+
+app.use( express.static( `${__dirname}/../build` ) );
 
 app.use(bodyParser.json());
 
@@ -24,7 +27,7 @@ massive(CONNECTION_STRING).then(db =>{
     console.log('Database reporting for duty.');
 })
 
-app.use(fkUser.bypassAuthInDevelopment);
+// app.use(fkUser.bypassAuthInDevelopment);
 app.get('/api/checkForBypass', (req, res) => {
     if(req.session.user){
         res.status(200).send(req.session.user)
@@ -45,5 +48,9 @@ app.put('/api/editBook/:id', ctrl.editBook);
 app.delete('/api/removeFromCart/:id', ctrl.removeFromCart);
 app.delete('/api/returnBook/:id', ctrl.removeFromShelf)
 app.delete('/api/delete/:id', ctrl.deleteBook);
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

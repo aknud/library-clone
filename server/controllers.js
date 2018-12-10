@@ -1,5 +1,3 @@
-const pgp = require('pg-promise')();
-
 module.exports = {
 	login: (req, res) => {
 		const dbi = req.app.get('db');
