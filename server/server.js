@@ -28,13 +28,6 @@ massive(CONNECTION_STRING).then(db =>{
 })
 
 // app.use(fkUser.bypassAuthInDevelopment);
-app.get('/api/checkForBypass', (req, res) => {
-    if(req.session.user){
-        res.status(200).send(req.session.user)
-    } else {
-        res.status(401).send('Access Denied')
-    }
-});
 app.post('/api/auth/login', ctrl.login);
 app.post('/api/auth/register', ctrl.register);
 app.post('/api/auth/logout', ctrl.logout);

@@ -22,7 +22,6 @@ export class Browse extends Component {
 				.get('/api/allBooks')
 				.then((res) => {
 					this.props.getBooks(res.data);
-					console.log('fetchBook had to run');
 				})
 				.catch((err) => console.log('fetchBooks has an error', err));
 		}

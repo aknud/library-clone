@@ -5,6 +5,7 @@ import { Jumbotron } from 'reactstrap';
 import axios from 'axios';
 import { getUserData, getBooks } from './../ducks/reducer';
 import book from './../assets/maroon-logo.svg';
+import swal from 'sweetalert';
 
 export class Auth extends Component {
 	constructor() {
@@ -20,9 +21,12 @@ export class Auth extends Component {
 			.get('/api/allBooks')
 			.then((res) => {
 				this.props.getBooks(res.data);
-				console.log('auth books ran');
 			})
 			.catch((err) => console.log("You've got an error", err));
+			swal({
+				title: 'Welcome to Books2Shelf',
+				text: `This is still a work in progress so for optimum viewing pleasure, check it out on your mobile phone, otherwise, please excuse the things that aren't centered. Thanks for visiting!`
+			})
 	};
 	handleInput = (e) => {
 		this.setState({ [e.target.name]: e.target.value });

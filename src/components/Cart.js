@@ -31,8 +31,7 @@ class Cart extends React.Component {
 			.catch((err) => console.log('checkoutCart has an error', err));
 		swal({
 			title: 'Books have been added to your bookshelf.',
-			text: 'Go to My Shelf to see your titles.',
-			icon: 'success'
+			text: 'Go to My Shelf to see your titles.'
 		});
 		this.props.clearCart();
 	};

@@ -51,3 +51,22 @@
 .auth-title {
 	margin: auto;
 }
+
+.swal-overlay {
+  background-color: rgba(78, 30, 41, .8);
+}
+.swal-modal {
+	background-color: $words;
+}
+.swal-title {
+	font-family: $title-font;
+	font-size: 30px;
+	color: $main-bg;
+}
+.swal-text {
+	font-family: $main-font;
+	color: $main-bg;
+}
+.swal-button {
+	background-color: $red-btn;
+}

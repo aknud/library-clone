@@ -105,6 +105,24 @@ table {
 .auth-title {
   margin: auto; }
 
+.swal-overlay {
+  background-color: rgba(78, 30, 41, 0.8); }
+
+.swal-modal {
+  background-color: #fbffe6; }
+
+.swal-title {
+  font-family: "Alegreya SC", serif;
+  font-size: 30px;
+  color: #4e1e29; }
+
+.swal-text {
+  font-family: "Open Sans", sans-serif;
+  color: #4e1e29; }
+
+.swal-button {
+  background-color: #a52422; }
+
 .nav-main {
   background-color: #020402; }
 

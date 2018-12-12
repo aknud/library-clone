@@ -29,11 +29,13 @@ export class Details extends React.Component {
 					});
 					swal({
 						title: 'Exterminated!',
-						icon: 'success',
 						text: 'No second chances'
 					});
 				} else {
-					swal(`${title} is safe. Thank you for letting it stay.`);
+					swal({
+						text: `${title} is safe. Thank you for letting it stay.`,
+						button: 'Whew!'
+					});
 				}
 			})
 			.catch((err) => console.log('handleDelete has an error', err));
@@ -45,9 +47,8 @@ export class Details extends React.Component {
 		});
 		swal({
 			title: 'Book has been added to your cart.',
-			text: 'Go to Cart to checkout items to your shelf.',
-			icon: 'success'
-		})
+			text: 'Go to Cart to checkout items to your shelf.'
+		});
 	};
 	render() {
 		let selectedBook = this.props.books
@@ -56,7 +57,7 @@ export class Details extends React.Component {
 				return (
 					<div key={book.book_id} className="book-info">
 						<img className="book-cover" src={book.image_url} alt={book.title} />
-						<div >
+						<div>
 							<h4>
 								Title: <span className="book-info-details">{book.title}</span>
 							</h4>
@@ -97,7 +98,9 @@ export class Details extends React.Component {
 				<Nav />
 				<div className="details-tan">
 					<h1 className="details-title">Details</h1>
-					<button className="details-back-btn" onClick={() => this.props.history.goBack()}>Back</button>
+					<button className="details-back-btn" onClick={() => this.props.history.goBack()}>
+						Back
+					</button>
 					<div className="details-book-container">{selectedBook}</div>
 				</div>
 			</div>
