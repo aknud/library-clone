@@ -1,27 +1,35 @@
 .nav-main {
-    background-color: $blk-bg;
+	background-color: $blk-bg;
 }
 .nav-logo {
-    @include width-height(60px, 60px)
+	@include width-height(60px, 60px);
 }
 
 .navbar-toggler {
-    border: 1px solid $tan-bg;
+	border: 1px solid $tan-bg;
+}
+.navbar-toggler:hover {
+	border: 1px solid $tan-bg;
+	border-radius: 5px;
+}
+.navbar-dark {
+    border-radius: .25rem;
 }
 
 button:focus {
-    outline: 5px auto $tan-bg;
+	outline: 5px auto $tan-bg;
+    border-radius: .25rem;
 }
 
 h2 {
-    font-size: 24px;
-    font-family: $title-font;
-    color: $tan-bg;
-    padding: 10px 0px;
+	font-size: 24px;
+	font-family: $title-font;
+	color: $tan-bg;
+	padding: 10px 0px;
 }
 .logout-button {
-    background: none;
-    border: none;
-    padding:0px;
-    margin: 0;
+	background: none;
+	border: none;
+	padding: 0px;
+	margin: 0;
 }

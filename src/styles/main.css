@@ -48,26 +48,23 @@ table {
   height: 100vh;
   display: grid; }
 
-.jumbo-div {
+.av-tan {
   height: 90vh;
   background: #c6b38e;
   font-family: "Alegreya SC", serif;
-  font-size: 40px;
+  font-size: 2.4em;
   color: #4e1e29;
   border-radius: 10px;
   margin: auto 25px;
-  display: grid; }
-
-.av-tan {
   display: grid;
-  grid-template-rows: 30% 15%;
   justify-items: center;
   align-content: space-evenly; }
 
 .av-black {
   height: 300px;
+  margin: inherit;
   display: grid;
-  grid-template-rows: 33% 33% 33%;
+  grid-template-rows: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
   background: #242325;
@@ -123,6 +120,10 @@ table {
 .swal-button {
   background-color: #a52422; }
 
+@media (min-width: 800px) {
+  .av-tan {
+    margin: auto 15%; } }
+
 .nav-main {
   background-color: #020402; }
 
@@ -133,8 +134,16 @@ table {
 .navbar-toggler {
   border: 1px solid #c6b38e; }
 
+.navbar-toggler:hover {
+  border: 1px solid #c6b38e;
+  border-radius: 5px; }
+
+.navbar-dark {
+  border-radius: .25rem; }
+
 button:focus {
-  outline: 5px auto #c6b38e; }
+  outline: 5px auto #c6b38e;
+  border-radius: .25rem; }
 
 h2 {
   font-size: 24px;
@@ -211,6 +220,18 @@ h2 {
 
 .this-btn {
   margin: 0px auto; }
+
+@media (min-width: 800px) {
+  .title {
+    font-size: 3.5em; }
+  .options {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin: auto; }
+  .genre-select {
+    margin: 0; }
+  .label-genre {
+    padding-top: 2px; } }
 
 .book-card {
   font-family: "Open Sans", sans-serif;
