@@ -74,4 +74,15 @@
 	.av-tan {
 		margin: auto 15%;
 	}
+	.av-black{
+		width: 60%;
+	}
+	.login {
+		display: inline-grid;
+		grid-template-columns: 1fr 2fr;
+	}
+	.av-label {
+		margin: auto 11%;
+	}
+
 }

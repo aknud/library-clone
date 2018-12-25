@@ -122,7 +122,14 @@ table {
 
 @media (min-width: 800px) {
   .av-tan {
-    margin: auto 15%; } }
+    margin: auto 15%; }
+  .av-black {
+    width: 60%; }
+  .login {
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr; }
+  .av-label {
+    margin: auto 11%; } }
 
 .nav-main {
   background-color: #020402; }
@@ -227,7 +234,8 @@ h2 {
   .options {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    margin: auto; }
+    margin: auto;
+    font-size: 1rem; }
   .genre-select {
     margin: 0; }
   .label-genre {
@@ -280,6 +288,10 @@ h2 {
   padding: 10px;
   border: none;
   font-size: 0.9em; }
+
+@media (min-width: 800px) {
+  .book-card {
+    width: 50%; } }
 
 .details-main {
   background-color: #4e1e29;
@@ -356,6 +368,24 @@ h2 {
   padding: 10px;
   border: none;
   margin: auto auto; }
+
+@media (min-width: 800px) {
+  .details-tan {
+    grid-template-rows: auto; }
+  .details-book-container {
+    width: 70%;
+    margin: 0px auto; }
+    .details-book-container .book-cover {
+      grid-area: pic; }
+  .book-info {
+    display: grid;
+    grid-template-columns: 34% 66%;
+    grid-template-rows: 80%;
+    grid-template-areas: "pic info" "pic info" "pic buttons";
+    padding: 20px; }
+  .details-btns-container {
+    margin-top: 10px;
+    grid-area: buttons; } }
 
 .edit-main {
   background-color: #4e1e29;

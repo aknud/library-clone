@@ -45,3 +45,9 @@
   @include btn-style;
   font-size: 0.9em;
 }
+
+@media (min-width: 800px){
+  .book-card {
+    width: 50%;
+  }
+}

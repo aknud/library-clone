@@ -65,7 +65,7 @@ export class Auth extends Component {
 					<img className="av-book" src={book} alt="book" />
 					<h1 className="auth-title">Book Exchange</h1>
 					<div className="av-black">
-						<div className="login-username">
+						<div className="login-username login">
 							<label className="av-label">Username</label>
 							<input
 								className="av-inputs"
@@ -75,7 +75,7 @@ export class Auth extends Component {
 								value={this.state.username}
 							/>
 						</div>
-						<div className="login-password">
+						<div className="login-password login">
 							<label className="av-label">Password</label>
 							<input
 								className="av-inputs"

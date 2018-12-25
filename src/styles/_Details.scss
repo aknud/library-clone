@@ -55,3 +55,27 @@
 	@include btn-style;
 	margin: auto auto;
 }
+
+@media (min-width: 800px) {
+	.details-tan {
+		grid-template-rows: auto;
+	}
+	.details-book-container {
+		width: 70%;
+		margin: 0px auto;
+		.book-cover {
+			grid-area: pic;
+		}
+	}
+	.book-info {
+		display: grid;
+		grid-template-columns: 34% 66%;
+		grid-template-rows: 80%;
+		grid-template-areas: "pic info" "pic info" "pic buttons";
+		padding: 20px;
+	}
+	.details-btns-container {
+    margin-top: 10px;
+    grid-area: buttons;
+}
+}
