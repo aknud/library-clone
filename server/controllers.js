@@ -1,7 +1,7 @@
 module.exports = {
 	login: (req, res) => {
 		const dbi = req.app.get('db');
-		const { username, password } = req.body;
+		const { username } = req.body;
 		dbi
 			.find_user([ username ])
 			.then((user) => {
@@ -9,9 +9,8 @@ module.exports = {
 					req.session.user = user[0];
 					console.log(req.session.user);
 					res.status(200).send(req.session.user);
-				}
-				else {
-					console.log(`No user found ${req.session.user}`)
+				} else {
+					console.log(`No user found ${req.session.user}`);
 				}
 			})
 			.catch((err) => {
@@ -74,11 +73,9 @@ module.exports = {
 				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.deleteBook' });
 				console.log(err);
 			});
-		console.log('delete ran', req.params.id);
 	},
 	addToCart: (req, res) => {
 		const dbi = req.app.get('db');
-		console.log(req.session.user, req.params.id);
 		dbi
 			.add_book_to_cart([ req.session.user.user_id, req.params.id ])
 			.then((books) => {
@@ -128,25 +125,27 @@ module.exports = {
 	},
 	addToShelf: (req, res) => {
 		const dbi = req.app.get('db');
-		dbi.add_to_shelf([req.session.user.user_id, req.body]).then(() => res.sendStatus(200))
-		.catch((err) => {
+		dbi.add_to_shelf([ req.session.user.user_id, req.body ]).then(() => res.sendStatus(200)).catch((err) => {
 			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.addToShelf' });
 			console.log(err);
 		});
 	},
 	getShelf: (req, res) => {
 		const dbi = req.app.get('db');
-		dbi.books_on_shelf([req.session.user.user_id]).then((books) => {
-			res.status(200).send(books);
-		})
-		.catch((err) => {
-			res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.getShelf' });
-			console.log(err);
-		});
+		dbi
+			.books_on_shelf([ req.session.user.user_id ])
+			.then((books) => {
+				res.status(200).send(books);
+			})
+			.catch((err) => {
+				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.getShelf' });
+				console.log(err);
+			});
 	},
 	removeFromShelf: (req, res) => {
 		const dbi = req.app.get('db');
-			dbi.return_book([ req.session.user.user_id, req.params.id ])
+		dbi
+			.return_book([ req.session.user.user_id, req.params.id ])
 			.then((books) => {
 				res.status(200).send(books);
 			})
@@ -154,5 +153,5 @@ module.exports = {
 				res.status(500).send({ errorMessage: 'Somethings wrong in ctrl.booksInCart' });
 				console.log(err);
 			});
-	},
+	}
 };
